@@ -6,10 +6,7 @@
     <persistence-unit name="instrumentPU" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
-
-        <!-- Thêm các lớp thực thể-->
-<!--        <class>com.instrumentwebsite.musicalinstruments.model.Account</class>-->
-<!--        <class>com.instrumentwebsite.musicalinstruments.model.Users</class>-->
+        <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
 
         <properties>
             <property name="jakarta.persistence.jdbc.url"
@@ -19,11 +16,13 @@
             <property name="jakarta.persistence.jdbc.user"
                       value="postgres"/>
             <property name="jakarta.persistence.jdbc.password"
-                      value="123456"/>
+                      value="postgres"/>
+
 
             <!-- Hibernate specific properties -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
-            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="jakarta.persistence.schema-generation.database.action" value="create"/>
+<!--            <property name="hibernate.hbm2ddl.auto" value="update"/>-->
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
         </properties>

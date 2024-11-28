@@ -63,12 +63,6 @@
 						<!-- menu start -->
 						<nav class="main-menu">
 							<ul>
-								<li class="current-list-item"><a href="#">Home</a>
-									<ul class="sub-menu">
-										<li><a href="index.jsp">Static Home</a></li>
-<%--										<li><a href="index.jsp">Slider Home</a></li>--%>
-									</ul>
-								</li>
 								<li><a href="${ctx}/WEB-INF/views/about.html">About</a></li>
 								<li><a href="#">Pages</a>
 									<ul class="sub-menu">
