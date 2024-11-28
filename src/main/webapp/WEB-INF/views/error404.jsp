@@ -53,7 +53,7 @@
 					<div class="main-menu-wrap">
 						<!-- logo -->
 						<div class="site-logo">
-							<a href="index.jsp">
+							<a href="${ctx}/">
 								<img src="${ctx}/assets/img/logo.png" alt="">
 							</a>
 						</div>
