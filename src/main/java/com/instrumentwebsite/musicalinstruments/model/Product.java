@@ -14,15 +14,12 @@ public class Product {
     private String name;
     private String description;
     private BigDecimal price;
+    @Column(length = 500)
     private String imageURL;
 
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
-
-    @ManyToOne
-    @JoinColumn(name = "brand_id")
-    private Brand brand;
 
     // Getters and Setters
 
@@ -66,20 +63,12 @@ public class Product {
         this.category = category;
     }
 
-    public Brand getBrand() {
-        return brand;
-    }
-
-    public void setBrand(Brand brand) {
-        this.brand = brand;
-    }
-
-    public String getImage() {
+    public String getImageURL() {
         return imageURL;
     }
 
-    public void setImage(String image) {
-        this.imageURL = image;
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
     }
 }
 

@@ -2,6 +2,8 @@
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,9 +33,6 @@
         <div class="header-left active">
             <a href="${ctx}/" class="logo">
                 <img src="${ctx}/assets/img/logo.png" alt="">
-            </a>
-            <a href="${ctx}/" class="logo-small">
-                <img src="${ctx}/assets/img/logo-small.png" alt="">
             </a>
             <a id="toggle_btn" href="javascript:void(0);">
             </a>
@@ -195,20 +194,18 @@
                     <li class="submenu">
                         <a href="javascript:void(0);"><img src="${ctx}/assets/img/icons/product.svg" alt="img"><span> Product</span> <span class="menu-arrow"></span></a>
                         <ul>
-                            <li><a href="${ctx}/product">Product List</a></li>
-                            <li><a href="${ctx}/addproduct">Add Product</a></li>
-                            <li><a href="${ctx}/categorylist">Category List</a></li>
-                            <li><a href="${ctx}/addcategory">Add Category</a></li>
-                            <li><a href="${ctx}/brandlist">Brand List</a></li>
-                            <li><a href="${ctx}/addbrand">Add Brand</a></li>
+                            <li><a href="${ctx}/admin-product">Product List</a></li>
+                            <li><a href="${ctx}/admin-addproduct">Add Product</a></li>
+                            <li><a href="${ctx}/admin-categorylist">Category List</a></li>
+                            <li><a href="${ctx}/admin-addcategory">Add Category</a></li>
+                            <li><a href="${ctx}/admin-brandlist">Brand List</a></li>
+                            <li><a href="${ctx}/admin-addbrand">Add Brand</a></li>
                         </ul>
                     </li>
                     <li class="submenu">
                         <a href="javascript:void(0);"><img src="${ctx}/assets/img/icons/sales1.svg" alt="img"><span> Sales</span> <span class="menu-arrow"></span></a>
                         <ul>
                             <li><a href="${ctx}/saleslist.html">Sales List</a></li>
-                            <li><a href="${ctx}/pos.html">POS</a></li>
-                            <li><a href="${ctx}/pos.html">New Sales</a></li>
                             <li><a href="${ctx}/salesreturnlists.html">Sales Return List</a></li>
                             <li><a href="${ctx}/createsalesreturns.html">New Sales Return</a></li>
                         </ul>
