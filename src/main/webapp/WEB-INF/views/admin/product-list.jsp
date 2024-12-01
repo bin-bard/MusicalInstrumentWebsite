@@ -1,5 +1,6 @@
 <jsp:include page="menu-admin.jsp" />
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
 
     <div class="page-wrapper">
         <div class="content">
@@ -151,10 +152,10 @@
                                         <a class="me-3" href="product-details.html">
                                             <img src="assets/img/icons/eye.svg" alt="img">
                                         </a>
-                                        <a class="me-3" href="editproduct.html">
+                                        <a class="me-3" href="${pageContext.request.contextPath}/admin-updateproduct?id=${product.id}">
                                             <img src="assets/img/icons/edit.svg" alt="img">
                                         </a>
-                                        <a class="confirm-text" href="javascript:void(0);">
+                                        <a class="confirm-deleteproduct" href="${pageContext.request.contextPath}/admin-deleteproduct?id=${product.id}">
                                             <img src="assets/img/icons/delete.svg" alt="img">
                                         </a>
                                     </td>
@@ -188,8 +189,35 @@
 <script src="assets/plugins/select2/js/select2.min.js"></script>
 
 <script src="assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
+
 <script src="assets/plugins/sweetalert/sweetalerts.min.js"></script>
 
 <script src="assets/js/script.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elements = document.querySelectorAll('a.confirm-deleteproduct');
+        elements.forEach(function(element) {
+            element.addEventListener('click', function(event) {
+                event.preventDefault(); // Ngăn chặn hành động mặc định
+                var href = this.getAttribute('href');
+                Swal.fire({
+                    title: 'Bạn có chắc chắn muốn xóa sản phẩm này không?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Có, xóa nó!',
+                    cancelButtonText: 'Hủy'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = href; // Thực hiện xóa sau khi xác nhận
+                    }
+                });
+            });
+        });
+    });
+</script>
+
 </body>
 </html>

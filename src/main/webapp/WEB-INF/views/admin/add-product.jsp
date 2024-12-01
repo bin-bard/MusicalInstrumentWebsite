@@ -1,137 +1,69 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="menu-admin.jsp" />
 
-    <div class="page-wrapper">
-        <div class="content">
-            <div class="page-header">
-                <div class="page-title">
-                    <h4>Product Add</h4>
-                    <h6>Create new product</h6>
-                </div>
-            </div>
 
-            <div class="card">
-                <div class="card-body">
+<div class="page-wrapper">
+    <div class="content">
+        <div class="page-header">
+            <div class="page-title">
+                <h4>Product Add</h4>
+                <h6>Create new product</h6>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <form action="${pageContext.request.contextPath}/admin-addproduct" method="post" enctype="multipart/form-data">
                     <div class="row">
-                        <div class="col-lg-3 col-sm-6 col-12">
+                        <!-- Product Name -->
+                        <div class="col-lg-6 col-sm-12">
                             <div class="form-group">
                                 <label>Product Name</label>
-                                <input type="text">
+                                <input type="text" name="name" class="form-control" required>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-sm-6 col-12">
+                        <!-- Category -->
+                        <div class="col-lg-6 col-sm-12">
                             <div class="form-group">
                                 <label>Category</label>
-                                <select class="select">
-                                    <option>Choose Category</option>
-                                    <option>Computers</option>
+                                <select name="categoryId" class="form-control" required>
+                                    <option value="">Choose Category</option>
+                                    <%-- Populate categories dynamically --%>
+                                    <c:forEach var="category" items="${categories}">
+                                        <option value="${category.id}">${category.name}</option>
+                                    </c:forEach>
                                 </select>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-sm-6 col-12">
+                        <!-- Price -->
+                        <div class="col-lg-6 col-sm-12">
                             <div class="form-group">
-                                <label>Sub Category</label>
-                                <select class="select">
-                                    <option>Choose Sub Category</option>
-                                    <option>Fruits</option>
-                                </select>
+                                <label>Price</label>
+                                <input type="number" name="price" class="form-control" step="0.01" required>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-sm-6 col-12">
+                        <!-- Image -->
+                        <div class="col-lg-6 col-sm-12">
                             <div class="form-group">
-                                <label>Brand</label>
-                                <select class="select">
-                                    <option>Choose Brand</option>
-                                    <option>Brand</option>
-                                </select>
+                                <label>Product Image</label>
+                                <input type="file" name="image" class="form-control-file">
                             </div>
                         </div>
-                        <div class="col-lg-3 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label>Unit</label>
-                                <select class="select">
-                                    <option>Choose Unit</option>
-                                    <option>Unit</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label>SKU</label>
-                                <input type="text">
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label>Minimum Qty</label>
-                                <input type="text">
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label>Quantity</label>
-                                <input type="text">
-                            </div>
-                        </div>
+                        <!-- Description -->
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label>Description</label>
-                                <textarea class="form-control"></textarea>
+                                <textarea name="description" class="form-control" rows="4"></textarea>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label>Tax</label>
-                                <select class="select">
-                                    <option>Choose Tax</option>
-                                    <option>2%</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label>Discount Type</label>
-                                <select class="select">
-                                    <option>Percentage</option>
-                                    <option>10%</option>
-                                    <option>20%</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label>Price</label>
-                                <input type="text">
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label> Status</label>
-                                <select class="select">
-                                    <option>Closed</option>
-                                    <option>Open</option>
-                                </select>
-                            </div>
-                        </div>
+                        <!-- Submit Button -->
                         <div class="col-lg-12">
-                            <div class="form-group">
-                                <label> Product Image</label>
-                                <div class="image-upload">
-                                    <input type="file">
-                                    <div class="image-uploads">
-                                        <img src="assets/img/icons/upload.svg" alt="img">
-                                        <h4>Drag and drop a file to upload</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <a href="javascript:void(0);" class="btn btn-submit me-2">Submit</a>
-                            <a href="productlist.html" class="btn btn-cancel">Cancel</a>
+                            <button type="submit" class="btn btn-primary">Add Product</button>
+                            <a href="${pageContext.request.contextPath}/admin" class="btn btn-cancel">Cancel</a>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
-
         </div>
     </div>
 </div>

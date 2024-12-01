@@ -198,8 +198,6 @@
                             <li><a href="${ctx}/admin-addproduct">Add Product</a></li>
                             <li><a href="${ctx}/admin-categorylist">Category List</a></li>
                             <li><a href="${ctx}/admin-addcategory">Add Category</a></li>
-                            <li><a href="${ctx}/admin-brandlist">Brand List</a></li>
-                            <li><a href="${ctx}/admin-addbrand">Add Brand</a></li>
                         </ul>
                     </li>
                     <li class="submenu">

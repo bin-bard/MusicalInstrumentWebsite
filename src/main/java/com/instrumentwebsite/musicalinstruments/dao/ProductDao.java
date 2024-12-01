@@ -1,10 +1,13 @@
 // src/main/java/com/instrumentwebsite/musicalinstruments/dao/ProductDao.java
 package com.instrumentwebsite.musicalinstruments.dao;
 
+import com.instrumentwebsite.musicalinstruments.model.Category;
 import com.instrumentwebsite.musicalinstruments.model.Product;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+
+import java.math.BigDecimal;
 import java.util.List;
 
 public class ProductDao {
@@ -25,20 +28,71 @@ public class ProductDao {
         }
     }
 
-    public static void main(String[] args) {
-        ProductDao productDao = new ProductDao();
-        List<Product> products = productDao.getAllProducts();
-        if (products != null && !products.isEmpty()) {
-            System.out.println("Products retrieved successfully:");
-            for (Product product : products) {
-                System.out.println(product.getName());
-                System.out.println(product.getDescription());
-                System.out.println(product.getPrice());
-                System.out.println(product.getImageURL());
-                System.out.println(product.getCategory().getName());
-            }
-        } else {
-            System.out.println("No products found.");
+public Product findById(Long productId) {
+    EntityManager em = emf.createEntityManager();
+    try {
+        return em.find(Product.class, productId);
+    } finally {
+        em.close();
+    }
+}
+
+    public void update(Product product) {
+        EntityManager em = emf.createEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.merge(product);
+            em.getTransaction().commit();
+        } finally {
+            em.close();
         }
     }
+
+    public void save(Product product) {
+        EntityManager em = emf.createEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.persist(product);
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+    }
+
+    public void deleteProduct(Long productId) {
+        EntityManager em = emf.createEntityManager();
+        try {
+            em.getTransaction().begin();
+            Product product = em.find(Product.class, productId);
+            if (product != null) {
+                em.remove(product);
+            }
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+    }
+
+
+    public static void main(String[] args) {
+        ProductDao productDao = new ProductDao();
+
+        // Create a new product
+        Product product = new Product();
+        product.setName("Test Product");
+        product.setDescription("This is a test product.");
+        product.setPrice(BigDecimal.valueOf(99.99));
+        product.setImageURL("test-product.jpg");
+
+        // Assuming you have a category with ID 1 in your database
+        CategoryDao categoryDao = new CategoryDao();
+        Category category = categoryDao.findById(1L);
+        product.setCategory(category);
+
+        // Save the product
+        productDao.save(product);
+    }
+
+
+
 }
