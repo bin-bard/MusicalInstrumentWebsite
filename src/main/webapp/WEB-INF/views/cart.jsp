@@ -1,3 +1,10 @@
+<%-- 
+    Document   : cart
+    Created on : Dec 1, 2024, 10:11:12 AM
+    Author     : nguye
+--%>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,26 +17,26 @@
 	<title>Cart</title>
 
 	<!-- favicon -->
-	<link rel="shortcut icon" type="image/png" href="${ctx}/assets/img/favicon.png">
+	<link rel="shortcut icon" type="image/png" href="<%= request.getContextPath() %>/assets/img/favicon.png">
 	<!-- google font -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
 	<!-- fontawesome -->
-	<link rel="stylesheet" href="${ctx}/assets/css/all.min.css">
+	<link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/all.min.css">
 	<!-- bootstrap -->
-	<link rel="stylesheet" href="${ctx}/assets/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="<%= request.getContextPath() %>/assets/bootstrap/css/bootstrap.min.css">
 	<!-- owl carousel -->
-	<link rel="stylesheet" href="${ctx}/assets/css/owl.carousel.css">
+	<link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/owl.carousel.css">
 	<!-- magnific popup -->
-	<link rel="stylesheet" href="${ctx}/assets/css/magnific-popup.css">
+	<link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/magnific-popup.css">
 	<!-- animate css -->
-	<link rel="stylesheet" href="${ctx}/assets/css/animate.css">
+	<link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/animate.css">
 	<!-- mean menu css -->
-	<link rel="stylesheet" href="${ctx}/assets/css/meanmenu.min.css">
+	<link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/meanmenu.min.css">
 	<!-- main style -->
-	<link rel="stylesheet" href="${ctx}/assets/css/main.css">
+	<link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/main.css">
 	<!-- responsive -->
-	<link rel="stylesheet" href="${ctx}/assets/css/responsive.css">
+	<link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/responsive.css">
 
 </head>
 <body>
@@ -51,7 +58,7 @@
 						<!-- logo -->
 						<div class="site-logo">
 							<a href="index.jsp">
-								<img src="${ctx}/assets/img/logo.png" alt="">
+								<img src="<%= request.getContextPath() %>/assets/img/logo.png" alt="">
 							</a>
 						</div>
 						<!-- logo -->
@@ -70,31 +77,31 @@
 									<ul class="sub-menu">
 										<li><a href="error404.jsp">404 page</a></li>
 										<li><a href="about.html">About</a></li>
-										<li><a href="cart.html">Cart</a></li>
-										<li><a href="checkout.html">Check Out</a></li>
+										<li><a href="${ctx}/Cart">Cart</a></li>
+										<li><a href="${ctx}/Checkout">Check Out</a></li>
 										<li><a href="contact.html">Contact</a></li>
 										<li><a href="news.html">News</a></li>
-										<li><a href="shop.html">Shop</a></li>
+										<li><a href="${ctx}/Shop">Shop</a></li>
 									</ul>
 								</li>
 								<li><a href="news.html">News</a>
 									<ul class="sub-menu">
 										<li><a href="news.html">News</a></li>
-										<li><a href="single-news.html">Single News</a></li>
+										<li><a href="${ctx}/SingleNews">Single News</a></li>
 									</ul>
 								</li>
 								<li><a href="contact.html">Contact</a></li>
-								<li><a href="shop.html">Shop</a>
+								<li><a href="${ctx}/Shop">Shop</a>
 									<ul class="sub-menu">
-										<li><a href="shop.html">Shop</a></li>
-										<li><a href="checkout.html">Check Out</a></li>
-										<li><a href="single-product.html">Single Product</a></li>
-										<li><a href="cart.html">Cart</a></li>
+										<li><a href="${ctx}/Shop">Shop</a></li>
+										<li><a href="${ctx}/Checkout">Check Out</a></li>
+										<li><a href="${ctx}/SingleProduct">Single Product</a></li>
+										<li><a href="${ctx}/Cart">Cart</a></li>
 									</ul>
 								</li>
 								<li>
 									<div class="header-icons">
-										<a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+										<a class="shopping-cart" href="${ctx}/Cart"><i class="fas fa-shopping-cart"></i></a>
 										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
 									</div>
 								</li>
@@ -109,8 +116,8 @@
 		</div>
 	</div>
 	<!-- end header -->
-
-	<!-- search area -->
+        
+        <!-- search area -->
 	<div class="search-area">
 		<div class="container">
 			<div class="row">
@@ -135,7 +142,7 @@
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="breadcrumb-text">
-						<p>Fresh and Organic</p>
+						
 						<h1>Cart</h1>
 					</div>
 				</div>
@@ -216,8 +223,8 @@
 							</tbody>
 						</table>
 						<div class="cart-buttons">
-							<a href="cart.html" class="boxed-btn">Update Cart</a>
-							<a href="checkout.html" class="boxed-btn black">Check Out</a>
+							<a href="${ctx}/Cart" class="boxed-btn">Update Cart</a>
+							<a href="${ctx}/Checkout" class="boxed-btn black">Check Out</a>
 						</div>
 					</div>
 
@@ -242,15 +249,24 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="logo-carousel-inner">
-						<div class="single-logo-item">
-							<img src="${ctx}/assets/img/company-logos/1.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="${ctx}/assets/img/company-logos/2.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="${ctx}/assets/img/company-logos/3.png" alt="">
-						</div>
+                                            <div class="single-logo-item">
+                                                    <img src="${ctx}/assets/img/company-logos/1.png" alt="">
+                                            </div>
+                                            <div class="single-logo-item">
+                                                    <img src="${ctx}/assets/img/company-logos/2.png" alt="">
+                                            </div>
+                                            <div class="single-logo-item">
+                                                    <img src="${ctx}/assets/img/company-logos/3.png" alt="">
+                                            </div>
+                                            <div class="single-logo-item">
+                                                    <img src="${ctx}/assets/img/company-logos/4.jpg" alt="">
+                                            </div>
+                                             <div class="single-logo-item">
+                                                    <img src="${ctx}/assets/img/company-logos/5.jpg" alt="">
+                                            </div>
+                                            <div class="single-logo-item">
+                                                    <img src="${ctx}/assets/img/company-logos/6.jpg" alt="">
+                                            </div>
 					</div>
 				</div>
 			</div>
@@ -284,7 +300,7 @@
 						<ul>
 							<li><a href="index.jsp">Home</a></li>
 							<li><a href="about.html">About</a></li>
-							<li><a href="services.html">Shop</a></li>
+							<li><a href="${ctx}/Shop">Shop</a></li>
 							<li><a href="news.html">News</a></li>
 							<li><a href="contact.html">Contact</a></li>
 						</ul>
@@ -329,12 +345,12 @@
 		</div>
 	</div>
 	<!-- end copyright -->
-	
-	<!-- jquery -->
-	<script src="${ctx}/assets/js/jquery-1.11.3.min.js"></script>
+        
+        <!-- jquery -->
+	<script src="<%= request.getContextPath() %>/assets/js/jquery-1.11.3.min.js"></script>
 	<!-- bootstrap -->
-	<script src="${ctx}/assets/bootstrap/js/bootstrap.min.js"></script>
-	<!-- count down -->
+	<script src="<%= request.getContextPath() %>/assets/bootstrap/js/bootstrap.min.js"></script>
+        <!-- count down -->
 	<script src="${ctx}/assets/js/jquery.countdown.js"></script>
 	<!-- isotope -->
 	<script src="assets/js/jquery.isotope-3.0.6.min.js"></script>
@@ -350,6 +366,5 @@
 	<script src="assets/js/sticker.js"></script>
 	<!-- main js -->
 	<script src="assets/js/main.js"></script>
-
 </body>
 </html>

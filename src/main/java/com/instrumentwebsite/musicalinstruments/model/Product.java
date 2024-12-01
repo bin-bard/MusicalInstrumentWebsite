@@ -13,6 +13,7 @@ public class Product {
 
     private String name;
     private String description;
+    private String type;
     private BigDecimal price;
     private String imageURL;
 
@@ -49,7 +50,15 @@ public class Product {
     public void setDescription(String description) {
         this.description = description;
     }
+    
+     public String getType() {
+        return type;
+    }
 
+    public void setType(String type) {
+        this.type = type;
+    }
+    
     public BigDecimal getPrice() {
         return price;
     }

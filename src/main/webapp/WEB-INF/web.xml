@@ -1,19 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
-         version="6.0">
-
+<web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
     <!-- Add welcome file -->
     <welcome-file-list>
         <welcome-file>home.jsp</welcome-file>
     </welcome-file-list>
-
+    <servlet>
+        <servlet-name>Cart</servlet-name>
+        <servlet-class>Servlet.Cart</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Cart</servlet-name>
+        <url-pattern>/Cart</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>Shop</servlet-name>
+        <servlet-class>Servlet.Shop</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Shop</servlet-name>
+        <url-pattern>/Shop</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>SingleProduct</servlet-name>
+        <servlet-class>Servlet.SingleProduct</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SingleProduct</servlet-name>
+        <url-pattern>/SingleProduct</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>SingleNews</servlet-name>
+        <servlet-class>Servlet.SingleNews</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SingleNews</servlet-name>
+        <url-pattern>/SingleNews</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>Checkout</servlet-name>
+        <servlet-class>Servlet.Checkout</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Checkout</servlet-name>
+        <url-pattern>/Checkout</url-pattern>
+    </servlet-mapping>
+    
     <!-- Error page mapping -->
     <error-page>
         <error-code>404</error-code>
         <location>/WEB-INF/views/error404.jsp</location>
     </error-page>
-
 </web-app>
-

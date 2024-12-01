@@ -73,7 +73,7 @@
 									<ul class="sub-menu">
 										<li><a href="error404.jsp">404 page</a></li>
 										<li><a href="about.html">About</a></li>
-										<li><a href="cart.html">Cart</a></li>
+										<li><a href="Cart">Cart</a></li>
 										<li><a href="checkout.html">Check Out</a></li>
 										<li><a href="contact.html">Contact</a></li>
 										<li><a href="news.html">News</a></li>
@@ -92,12 +92,12 @@
 										<li><a href="shop.html">Shop</a></li>
 										<li><a href="checkout.html">Check Out</a></li>
 										<li><a href="single-product.html">Single Product</a></li>
-										<li><a href="cart.html">Cart</a></li>
+										<li><a href="Cart">Cart</a></li>
 									</ul>
 								</li>
 								<li>
 									<div class="header-icons">
-										<a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+										<a class="shopping-cart" href="Cart"><i class="fas fa-shopping-cart"></i></a>
 										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
 									</div>
 								</li>
@@ -137,7 +137,6 @@
 				<div class="row">
 					<div class="col-lg-8 offset-lg-2 text-center">
 						<div class="breadcrumb-text">
-							<p>Fresh adn Organic</p>
 							<h1>404 - Not Found</h1>
 						</div>
 					</div>
@@ -170,20 +169,20 @@
 					<div class="col-lg-12">
 						<div class="logo-carousel-inner">
 							<div class="single-logo-item">
-								<img src="${ctx}/assets/img/company-logos/1.png" alt="">
-							</div>
-							<div class="single-logo-item">
-								<img src="${ctx}/assets/img/company-logos/2.png" alt="">
-							</div>
-							<div class="single-logo-item">
-								<img src="${ctx}/assets/img/company-logos/3.png" alt="">
-							</div>
-							<div class="single-logo-item">
-								<img src="${ctx}/assets/img/company-logos/4.png" alt="">
-							</div>
-							<div class="single-logo-item">
-								<img src="${ctx}/assets/img/company-logos/5.png" alt="">
-							</div>
+                                                            <img src="${ctx}/assets/img/company-logos/1.png" alt="">
+                                                        </div>
+                                                        <div class="single-logo-item">
+                                                                <img src="${ctx}/assets/img/company-logos/2.png" alt="">
+                                                        </div>
+                                                        <div class="single-logo-item">
+                                                                <img src="${ctx}/assets/img/company-logos/3.png" alt="">
+                                                        </div>
+                                                        <div class="single-logo-item">
+                                                                <img src="${ctx}/assets/img/company-logos/4.jpg" alt="">
+                                                        </div>
+                                                         <div class="single-logo-item">
+                                                                <img src="${ctx}/assets/img/company-logos/5.jpg" alt="">
+                                                        </div>
 						</div>
 					</div>
 				</div>
