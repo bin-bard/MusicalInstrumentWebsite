@@ -1,7 +1,6 @@
 package com.instrumentwebsite.musicalinstruments.model;
 
 import jakarta.persistence.*;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -18,6 +17,9 @@ public class Order {
 
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
+
+    @Enumerated(EnumType.STRING)
+    private PaymentMethod paymentMethod; // Thêm phương thức thanh toán
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
@@ -36,6 +38,12 @@ public class Order {
         SHIPPED,
         DELIVERED,
         CANCELED
+    }
+
+    public enum PaymentMethod { // Định nghĩa các phương thức thanh toán
+        CREDIT_CARD,
+        BANK_TRANSFER,
+        CASH_ON_DELIVERY
     }
 
     // Getters and Setters
@@ -70,6 +78,14 @@ public class Order {
 
     public void setStatus(OrderStatus status) {
         this.status = status;
+    }
+
+    public PaymentMethod getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(PaymentMethod paymentMethod) {
+        this.paymentMethod = paymentMethod;
     }
 
     public Customer getCustomer() {
