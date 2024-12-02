@@ -11,45 +11,22 @@
 
             <div class="card">
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-lg-6 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label>Category Name</label>
-                                <input type="text">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label>Category Code</label>
-                                <input type="text">
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                                <label>Description</label>
-                                <textarea class="form-control"></textarea>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                                <label> Product Image</label>
-                                <div class="image-upload">
-                                    <input type="file">
-                                    <div class="image-uploads">
-                                        <img src="assets/img/icons/upload.svg" alt="img">
-                                        <h4>Drag and drop a file to upload</h4>
-                                    </div>
+                    <form action="${pageContext.request.contextPath}/admin-addcategory" method="post">
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label>Category Name</label>
+                                    <input type="text" name="name" class="form-control" required>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <a href="javascript:void(0);" class="btn btn-submit me-2">Submit</a>
-                            <a href="categorylist.html" class="btn btn-cancel">Cancel</a>
-                        </div>
+                            <div class="col-lg-12">
+                                <button type="submit" class="btn btn-submit me-2">Submit</button>
+                                <a href="${pageContext.request.contextPath}/admin-categorylist" class="btn btn-cancel">Cancel</a>
+                            </div>
                     </div>
+                    </form>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

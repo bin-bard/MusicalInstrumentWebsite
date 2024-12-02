@@ -30,6 +30,54 @@ public class CategoryDao {
         }
     }
 
+    public void save(Category category) {
+        EntityManager em = emf.createEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.persist(category);
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+    }
+
+    public void deleteCategory(Long id) {
+        EntityManager em = emf.createEntityManager();
+        try {
+            em.getTransaction().begin();
+            Category category = em.find(Category.class, id);
+            if (category != null) {
+                em.remove(category);
+            }
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+    }
+
+    public boolean hasProducts(Long categoryId) {
+        EntityManager em = emf.createEntityManager();
+        try {
+            Long count = em.createQuery("SELECT COUNT(p) FROM Product p WHERE p.category.id = :categoryId", Long.class)
+                    .setParameter("categoryId", categoryId)
+                    .getSingleResult();
+            return count > 0;
+        } finally {
+            em.close();
+        }
+    }
+
+    public void update(Category category) {
+        EntityManager em = emf.createEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.merge(category);
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+    }
+
     public static void main(String[] args) {
         CategoryDao categoryDao = new CategoryDao();
         List<Category> categories = categoryDao.getAllCategories();

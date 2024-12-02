@@ -25,7 +25,7 @@ public class ProductController extends HttpServlet {
             throws ServletException, IOException {
         String path = request.getServletPath();
         if ("/admin-addproduct".equals(path)) {
-            // Load categories to populate the dropdown
+
             request.setAttribute("categories", categoryDao.getAllCategories());
             request.getRequestDispatcher("/WEB-INF/views/admin/add-product.jsp").forward(request, response);
         } else if ("/admin-product".equals(path)) {

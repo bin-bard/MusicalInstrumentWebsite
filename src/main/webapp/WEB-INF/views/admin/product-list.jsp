@@ -211,7 +211,7 @@
                     cancelButtonText: 'Hủy'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = href; // Thực hiện xóa sau khi xác nhận
+                        window.location.href = href;
                     }
                 });
             });
