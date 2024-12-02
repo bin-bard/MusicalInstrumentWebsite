@@ -1,8 +1,6 @@
 package com.instrumentwebsite.musicalinstruments.model;
 
-
 import jakarta.persistence.*;
-
 import java.util.List;
 
 @Entity
@@ -18,7 +16,6 @@ public class Category {
     private List<Product> products;
 
     // Getters and Setters
-
     public Long getId() {
         return id;
     }

@@ -16,7 +16,6 @@ public class Brand {
     private List<Product> products;
 
     // Getters and Setters
-
     public Long getId() {
         return id;
     }

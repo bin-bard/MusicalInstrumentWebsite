@@ -6,7 +6,8 @@ import jakarta.persistence.Persistence;
 public class EntityManagerFactoryProvider {
 
     // Singleton: chỉ tạo một lần EntityManagerFactory
-    private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("instrumentPU");
+     private static final EntityManagerFactory emf = 
+        Persistence.createEntityManagerFactory("instrumentPU");
 
     // Trả về EntityManagerFactory để sử dụng
     public static EntityManagerFactory getEntityManagerFactory() {

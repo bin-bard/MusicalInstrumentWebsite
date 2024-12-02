@@ -72,7 +72,7 @@
 										<li><a href="error404.jsp">404 page</a></li>
 										<li><a href="about.html">About</a></li>
 										<li><a href="${ctx}/Cart">Cart</a></li>
-										<li><a href="checkout.html">Check Out</a></li>
+										<li><a href="${ctx}/Checkout">Check Out</a></li>
 										<li><a href="contact.html">Contact</a></li>
 										<li><a href="news.html">News</a></li>
 										<li><a href="${ctx}/Shop">Shop</a></li>
@@ -81,14 +81,14 @@
 								<li><a href="news.html">News</a>
 									<ul class="sub-menu">
 										<li><a href="news.html">News</a></li>
-										<li><a href="single-news.html">Single News</a></li>
+										<li><a href="${ctx}/SingleNews">Single News</a></li>
 									</ul>
 								</li>
 								<li><a href="contact.html">Contact</a></li>
 								<li><a href="${ctx}/Shop">Shop</a>
 									<ul class="sub-menu">
 										<li><a href="${ctx}/Shop">Shop</a></li>
-										<li><a href="checkout.html">Check Out</a></li>
+										<li><a href="${ctx}/Checkout">Check Out</a></li>
 										<li><a href="${ctx}/SingleProduct">Single Product</a></li>
 										<li><a href="${ctx}/Cart">Cart</a></li>
 									</ul>

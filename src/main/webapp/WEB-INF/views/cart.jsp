@@ -142,10 +142,11 @@
                                     <td class="product-name">${item.name}</td>
                                     <td class="product-price">${item.price}</td>
                                     <td class="product-quantity">
-                                        <form action="${ctx}/updateCart" method="POST">
+                                        <form action="${ctx}/UpdateCart" method="POST">
                                             <input type="number" name="quantity" value="${item.quantity}" min="1" max="99" />
                                             <input type="hidden" name="productId" value="${item.id}" />
-                                            <button type="submit" class="btn btn-sm btn-primary">Update</button>
+                                            
+                                            
                                         </form>
                                     </td>
                                     <td class="product-total">${item.totalPrice}</td>
@@ -181,8 +182,14 @@
                         </tbody>
                     </table>
                     <div class="cart-buttons">
-                        <a href="${ctx}/Cart" class="boxed-btn">Update Cart</a>
-                        <a href="${ctx}/Checkout" class="boxed-btn black">Check Out</a>
+                        <form action="${ctx}/UpdateCart" method="POST">
+                            <input type="submit" class="boxed-btn" value="Update Cart" />
+                        </form>
+                        <br>
+                            
+                        <form action="${ctx}/Checkout" method="GET">
+                            <input type="submit" class="boxed-btn black" value="Check Out" />
+                        </form>
                     </div>
                 </div>
 

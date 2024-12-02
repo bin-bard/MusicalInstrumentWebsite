@@ -70,16 +70,16 @@
 									<li><a href="${ctx}/WEB-INF/views/error404.jsp">404 page</a></li>
 									<li><a href="${ctx}/about">About</a></li>
 									<li><a href="${ctx}/Cart">Cart</a></li>
-									<li><a href="${ctx}/WEB-INF/views/checkout.html">Check Out</a></li>
+									<li><a href="${ctx}/Checkout">Check Out</a></li>
 									<li><a href="${ctx}/WEB-INF/views/contact.html">Contact</a></li>
 									<li><a href="${ctx}/Shop">Shop</a></li>
-								</ul>
+								</ul> 
 							</li>
 							<li><a href="${ctx}/WEB-INF/views/contact.html">Contact</a></li>
 							<li><a href="${ctx}/Shop">Shop</a>
 								<ul class="sub-menu">
 									<li><a href="${ctx}/Shop">Shop</a></li>
-									<li><a href="${ctx}/WEB-INF/views/checkout.html">Check Out</a></li>
+									<li><a href="${ctx}/Checkout">Check Out</a></li>
 									<li><a href="${ctx}/SingleProduct">Single Product</a></li>
 									<li><a href="${ctx}/Cart">Cart</a></li>
 								</ul>
