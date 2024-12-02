@@ -1,4 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -163,68 +165,25 @@
                 </div>
             </div>
 
-			<div class="row product-lists">
-				<div class="col-lg-4 col-md-6 text-center strawberry">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="${ctx}/SingleProduct"><img src="assets/img/products/product-img-1.jpg" alt=""></a>
-						</div>
-						<h3>Violin</h3>
-						<p class="product-price">85$ </p>
-						<a href="${ctx}/Cart" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 text-center berry">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="${ctx}/SingleProduct"><img src="assets/img/products/product-img-2.jpg" alt=""></a>
-						</div>
-						<h3>Guitar</h3>
-						<p class="product-price">70$ </p>
-						<a href="${ctx}/Cart"  class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 text-center lemon">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="${ctx}/SingleProduct"><img src="assets/img/products/product-img-3.jpg" alt=""></a>
-						</div>
-						<h3>Piano</h3>
-						<p class="product-price"> 135$ </p>
-						<a href="${ctx}/Cart"  class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 text-center lemon">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="${ctx}/SingleProduct"><img src="assets/img/products/product-img-4.png" alt=""></a>
-						</div>
-						<h3>Flute</h3>
-						<p class="product-price"> 159$ </p>
-						<a href="${ctx}/Cart" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 text-center lemon">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="${ctx}/SingleProduct"><img src="assets/img/products/product-img-5.png" alt=""></a>
-						</div>
-						<h3>Saxophone</h3>
-						<p class="product-price"> 215$ </p>
-						<a href="${ctx}/Cart"  class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 text-center lemon">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="${ctx}/SingleProduct"><img src="assets/img/products/product-img-6.png" alt=""></a>
-						</div>
-						<h3>Red drum</h3>
-						<p class="product-price"> 373$ </p>
-						<a href="${ctx}/Cart"  class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-			</div>
+			<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+                        <div class="row product-lists">
+                            <c:forEach var="product" items="${products}">
+                                <div class="col-lg-4 col-md-6 text-center">
+                                    <div class="single-product-item">
+                                        <div class="product-image">
+                                            <a href="${ctx}/SingleProduct?id=${product.id}">
+                                                <img src="${product.image}" alt="${product.name}">
+                                            </a>
+                                        </div>
+                                        <h3>${product.name}</h3>
+                                        <p class="product-price">${product.price}</p>
+                                        <a href="${ctx}/Cart" class="cart-btn">
+                                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                                        </a>
+                                    </div>
+                                </div>
+                            </c:forEach>
+                        </div>
 
 			<div class="row">
 				<div class="col-lg-12 text-center">

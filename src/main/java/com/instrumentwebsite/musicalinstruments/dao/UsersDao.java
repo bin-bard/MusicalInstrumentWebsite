@@ -9,14 +9,14 @@ public class UsersDao {
 
     private final EntityManagerFactory emf = EntityManagerFactoryProvider.getEntityManagerFactory();
 
-    // Lưu một người dùng vào cơ sở dữ liệu
+ 
     public void save(Users user) {
         try (EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();
-            em.persist(user);  // Thêm người dùng mới
-            em.getTransaction().commit();  // Cam kết giao dịch
+            em.persist(user); 
+            em.getTransaction().commit();  
         } catch (Exception e) {
-            // Có thể thêm log hoặc xử lý ngoại lệ nếu cần
+           
             e.printStackTrace();
         }
     }

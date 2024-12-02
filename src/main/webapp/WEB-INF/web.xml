@@ -49,6 +49,24 @@
         <url-pattern>/Checkout</url-pattern>
     </servlet-mapping>
     
+    <servlet>
+        <servlet-name>AddToCart</servlet-name>
+        <servlet-class>Servlet.AddToCart</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddToCart</servlet-name>
+        <url-pattern>/AddToCart</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>UpdateCart</servlet-name>
+        <servlet-class>Servlet.UpdateCart</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateCart</servlet-name>
+        <url-pattern>/UpdateCart</url-pattern>
+    </servlet-mapping>
+    
     <!-- Error page mapping -->
     <error-page>
         <error-code>404</error-code>
