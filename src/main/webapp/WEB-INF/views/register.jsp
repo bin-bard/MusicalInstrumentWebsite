@@ -53,7 +53,7 @@
               <li><a href="${ctx}/WEB-INF/views/shop.html">Shop</a></li>
               <li>
                 <div class="header-icons">
-                  <a class="shopping-cart" href="${ctx}/WEB-INF/views/cart.html"><i class="fas fa-shopping-cart"></i></a>
+                  <a class="shopping-cart" href="${ctx}/WEB-INF/views/cart.jsp"><i class="fas fa-shopping-cart"></i></a>
                 </div>
               </li>
             </ul>

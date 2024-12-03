@@ -65,31 +65,9 @@
 						<ul>
 							<li><a href="${ctx}/admin">Admin</a></li>
 							<li><a href="${ctx}/about">About</a></li>
-							<li><a href="#">Pages</a>
-								<ul class="sub-menu">
-									<li><a href="${ctx}/WEB-INF/views/error404.jsp">404 page</a></li>
-									<li><a href="${ctx}/about">About</a></li>
-									<li><a href="${ctx}/WEB-INF/views/cart.html">Cart</a></li>
-									<li><a href="${ctx}/WEB-INF/views/checkout.html">Check Out</a></li>
-									<li><a href="${ctx}/WEB-INF/views/contact.html">Contact</a></li>
-									<li><a href="${ctx}/WEB-INF/views/shop.html">Shop</a></li>
-								</ul>
-							</li>
 							<li><a href="${ctx}/WEB-INF/views/contact.html">Contact</a></li>
-							<li><a href="${ctx}/WEB-INF/views/shop.html">Shop</a>
-								<ul class="sub-menu">
-									<li><a href="${ctx}/WEB-INF/views/shop.html">Shop</a></li>
-									<li><a href="${ctx}/WEB-INF/views/checkout.html">Check Out</a></li>
-									<li><a href="${ctx}/WEB-INF/views/single-product.html">Single Product</a></li>
-									<li><a href="${ctx}/WEB-INF/views/cart.html">Cart</a></li>
-								</ul>
-							</li>
-							<li>
-								<div class="header-icons">
-									<a class="shopping-cart" href="${ctx}/WEB-INF/views/cart.html"><i class="fas fa-shopping-cart"></i></a>
-									<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
-								</div>
-							</li>
+							<li><a href="${ctx}/WEB-INF/views/cart.jsp">Cart</a></li>
+							<li><a href="${ctx}/shop">Shop</a></li>
 						</ul>
 					</nav>
 					<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
@@ -119,7 +97,9 @@
 		</div>
 	</div>
 </div>
-<!-- end search area -->
+
+
+
 
 <!-- home page slider -->
 <div class="homepage-slider">
@@ -247,7 +227,7 @@
 					</div>
 					<h3>Strawberry</h3>
 					<p class="product-price"><span>Per Kg</span> 85$ </p>
-					<a href="${ctx}/WEB-INF/views/cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					<a href="${ctx}/WEB-INF/views/cart.jsp" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 				</div>
 			</div>
 			<div class="col-lg-4 col-md-6 text-center">
@@ -257,7 +237,7 @@
 					</div>
 					<h3>Berry</h3>
 					<p class="product-price"><span>Per Kg</span> 70$ </p>
-					<a href="${ctx}/WEB-INF/views/cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					<a href="${ctx}/WEB-INF/views/cart.jsp" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 				</div>
 			</div>
 			<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
@@ -267,7 +247,7 @@
 					</div>
 					<h3>Lemon</h3>
 					<p class="product-price"><span>Per Kg</span> 35$ </p>
-					<a href="${ctx}/WEB-INF/views/cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					<a href="${ctx}/WEB-INF/views/cart.jsp" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 				</div>
 			</div>
 		</div>
@@ -299,7 +279,7 @@
 				<div class="text">Quisquam minus maiores repudiandae nobis, minima saepe id, fugit ullam similique! Beatae, minima quisquam molestias facere ea. Perspiciatis unde omnis iste natus error sit voluptatem accusant</div>
 				<!--Countdown Timer-->
 				<div class="time-counter"><div class="time-countdown clearfix" data-countdown="2020/2/01"><div class="counter-column"><div class="inner"><span class="count">00</span>Days</div></div> <div class="counter-column"><div class="inner"><span class="count">00</span>Hours</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Mins</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Secs</div></div></div></div>
-				<a href="${ctx}/WEB-INF/views/cart.html" class="cart-btn mt-3"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+				<a href="${ctx}/WEB-INF/views/cart.jsp" class="cart-btn mt-3"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 			</div>
 		</div>
 	</div>
