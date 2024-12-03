@@ -71,12 +71,8 @@
 							<li>
 								<div class="header-icons">
 									<div class="header-icons">
-										<a class="shopping-cart" href="${ctx}/WEB-INF/views/cart.html">
-											<i class="fas fa-shopping-cart"></i>
-										</a>
-										<a class="mobile-hide search-bar-icon" href="#">
-											<i class="fas fa-search"></i>
-										</a>
+										<a class="shopping-cart" href="cart.jsp"><i class="fas fa-shopping-cart"></i></a>
+										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
 										<c:choose>
 											<c:when test="${empty sessionScope.user}">
 												<a href="${ctx}/login" class="cart-btn">
@@ -92,8 +88,7 @@
 												</a>
 											</c:otherwise>
 										</c:choose>
-										<a class="shopping-cart" href="cart.jsp"><i class="fas fa-shopping-cart"></i></a>
-										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+
 									</div>
 								</div>
 							</li>
