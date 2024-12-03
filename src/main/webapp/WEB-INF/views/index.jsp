@@ -66,8 +66,15 @@
 							<li><a href="${ctx}/admin">Admin</a></li>
 							<li><a href="${ctx}/about">About</a></li>
 							<li><a href="${ctx}/WEB-INF/views/contact.html">Contact</a></li>
-							<li><a href="${ctx}/WEB-INF/views/cart.jsp">Cart</a></li>
+							<li><a href="${ctx}/Cart">Cart</a></li>
 							<li><a href="${ctx}/shop">Shop</a></li>
+							<li>
+								<div class="header-icons">
+									<a class="shopping-cart" href="cart.jsp"><i class="fas fa-shopping-cart"></i></a>
+									<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+								</div>
+							</li>
+
 						</ul>
 					</nav>
 					<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
