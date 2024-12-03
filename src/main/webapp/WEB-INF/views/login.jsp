@@ -34,14 +34,14 @@
             <h4>Please enter your login details</h4>
           </div>
 
-          <form method="post" action="${ctx}/login">
+          <form method="post" action="${ctx}/login" id="loginForm">
             <div class="form-login">
               <label>Email or Username</label>
               <div class="form-addons">
                 <input type="text" name="emailOrUsername" placeholder="Enter your email or username" required>
               </div>
             </div>
-
+          
             <div class="form-login">
               <label>Password</label>
               <div class="pass-group">
@@ -49,11 +49,41 @@
                 <span class="fas toggle-password fa-eye-slash"></span>
               </div>
             </div>
-
+          
             <div class="form-login">
               <button type="submit" class="btn btn-login">Login</button>
             </div>
           </form>
+
+          <script>
+          document.getElementById('loginForm').addEventListener('submit', function(e) {
+              e.preventDefault();
+              const form = this;
+              
+              fetch(form.action, {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/x-www-form-urlencoded',
+                  },
+                  body: new URLSearchParams(new FormData(form))
+              })
+              .then(response => response.json())
+              .then(data => {
+                  console.log('Response data:', data);
+                  if (data.success) {
+                      console.log('Redirecting to:', '${ctx}/');
+                      window.location.href = '${ctx}/';
+                  } else {
+                      console.log('Login failed:', data.error);
+                      document.querySelector('.text-danger').textContent = data.error || 'Login failed';
+                  }
+              })
+              .catch(error => {
+                  console.error('Error:', error);
+                  document.querySelector('.text-danger').textContent = 'An error occurred during login';
+              });
+          });
+          </script>
 
           <p class="text-danger mt-3">${error != null ? error : ""}</p>
 

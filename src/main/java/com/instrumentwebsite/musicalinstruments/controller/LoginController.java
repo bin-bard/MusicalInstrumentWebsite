@@ -20,6 +20,12 @@ public class LoginController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // Kiểm tra nếu người dùng đã đăng nhập thì chuyển về trang chủ
+        HttpSession session = req.getSession(false);
+        if (session != null && session.getAttribute("user") != null) {
+            resp.sendRedirect(req.getContextPath() + "/");
+            return;
+        }
         req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
     }
 
@@ -28,18 +34,38 @@ public class LoginController extends HttpServlet {
         String emailOrUsername = req.getParameter("emailOrUsername");
         String password = req.getParameter("password");
 
+        resp.setContentType("application/json");
+        resp.setCharacterEncoding("UTF-8");
+
         try {
             if (loginService.authenticate(emailOrUsername, password)) {
                 HttpSession session = req.getSession();
                 session.setAttribute("user", emailOrUsername);
-                resp.sendRedirect("/index");
+
+                // Thêm các thông tin khác vào session nếu cần
+                // session.setAttribute("userId", user.getId());
+                // session.setAttribute("userRole", user.getRole());
+
+                resp.getWriter().write("{\"success\": true}");
             } else {
-                req.setAttribute("error", "Invalid email/username or password");
-                req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
+                resp.getWriter().write("{\"success\": false, \"error\": \"Invalid email/username or password\"}");
             }
         } catch (Exception e) {
-            req.setAttribute("error", "Login failed: " + e.getMessage());
-            req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
+            // Escape special characters in error message
+            String errorMessage = e.getMessage().replace("\"", "\\\"")
+                    .replace("\n", "\\n")
+                    .replace("\r", "\\r")
+                    .replace("\t", "\\t");
+            resp.getWriter().write("{\"success\": false, \"error\": \"" + errorMessage + "\"}");
         }
+    }
+
+    // Thêm phương thức logout nếu cần
+    protected void logout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession(false);
+        if (session != null) {
+            session.invalidate();
+        }
+        resp.sendRedirect(req.getContextPath() + "/login");
     }
 }
