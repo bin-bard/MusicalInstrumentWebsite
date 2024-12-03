@@ -51,6 +51,12 @@
             </div>
           
             <div class="form-login">
+              <div class="text-end">
+                <a href="${ctx}/forgot-password" class="hover-a">Forgot Password?</a>
+              </div>
+            </div>
+
+            <div class="form-login">
               <button type="submit" class="btn btn-login">Login</button>
             </div>
           </form>
