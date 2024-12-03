@@ -70,8 +70,31 @@
 							<li><a href="${ctx}/shop">Shop</a></li>
 							<li>
 								<div class="header-icons">
-									<a class="shopping-cart" href="cart.jsp"><i class="fas fa-shopping-cart"></i></a>
-									<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+									<div class="header-icons">
+										<a class="shopping-cart" href="${ctx}/WEB-INF/views/cart.html">
+											<i class="fas fa-shopping-cart"></i>
+										</a>
+										<a class="mobile-hide search-bar-icon" href="#">
+											<i class="fas fa-search"></i>
+										</a>
+										<c:choose>
+											<c:when test="${empty sessionScope.user}">
+												<a href="${ctx}/login" class="cart-btn">
+													<i class="fas fa-sign-in-alt"></i> Login
+												</a>
+											</c:when>
+											<c:otherwise>
+												<a href="${ctx}/profile" class="cart-btn">
+													<i class="fas fa-user"></i> My Profile
+												</a>
+												<a href="${ctx}/logout" class="cart-btn">
+													<i class="fas fa-sign-out-alt"></i> Logout
+												</a>
+											</c:otherwise>
+										</c:choose>
+										<a class="shopping-cart" href="cart.jsp"><i class="fas fa-shopping-cart"></i></a>
+										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+									</div>
 								</div>
 							</li>
 
