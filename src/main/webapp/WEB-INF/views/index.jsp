@@ -83,7 +83,7 @@
 												<a href="${ctx}/profile" class="cart-btn">
 													<i class="fas fa-user"></i> My Profile
 												</a>
-												<a href="${ctx}/logout" class="cart-btn">
+												<a href="javascript:void(0)" class="cart-btn" onclick="confirmLogout()">
 													<i class="fas fa-sign-out-alt"></i> Logout
 												</a>
 											</c:otherwise>
@@ -585,6 +585,26 @@
 <script src="${ctx}/assets/js/sticker.js"></script>
 <!-- main js -->
 <script src="${ctx}/assets/js/main.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+function confirmLogout() {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You will be logged out of your account!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, logout!',
+        cancelButtonText: 'Cancel'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = '${ctx}/logout';
+        }
+    });
+}
+</script>
 
 </body>
 </html>
