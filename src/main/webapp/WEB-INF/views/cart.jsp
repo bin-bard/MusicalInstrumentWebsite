@@ -197,6 +197,141 @@
 			</div>
 
 			<div class="col-lg-4">
+				<div class="cart__discount">
+					<h6 style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#form2Modal">Discount codes</h6>
+					<form onsubmit="return false;">
+						<input type="text" id="couponCode" placeholder="Coupon code" required>
+						<button type="button" class="btn btn-primary"
+								onclick="sendCouponCode()">
+							Áp Dụng
+						</button>
+					</form>
+				</div>
+
+
+				<div id="couponContent"></div>
+
+
+				<div id="discountContent" style="display: block;">
+					<div class="row text-info d-flex align-items-center">
+						<div class="col-1">
+							<i class="fa-solid fa-check"></i>
+						</div>
+						<div class="col-2 text-info">
+							<input type="text" id="title" style="border: none; color:#17a2b8 ;" data-bs-toggle="modal"
+								   data-bs-target="#form2Modal" readonly>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-1 text-info">
+							<i class="fa-solid fa-arrow-right"></i>
+						</div>
+						<div class="col-5">
+							<input type="text" id="descriptionCoupon"
+								   style="border: none; background: transparent; pointer-events: none; font-weight: bold"
+								   readonly>
+						</div>
+						<div class="col-1 text-info fw-bold">
+							<input type="text" id="percentCoupon"
+								   style="border: none; background: transparent; pointer-events: none; font-weight: bold; color: #17a2b8;"
+								   readonly>
+						</div>
+					</div>
+					<div class="row text-info d-flex align-items-center fw-bold" style="border: none; background: transparent; pointer-events: none; font-weight: bold">
+						<div class = "col-8">
+							<h6>• Áp dụng với đơn hàng trên: </h6>
+						</div>
+						<div class = "col-2 mb-1 ">
+							<input type="text" id="minimumInvoiceAmount" style="border: none; color:#17a2b8 ;" readonly>
+						</div>
+						<div class = "col-2"></div>
+					</div>
+					<div class="row text-black d-flex align-items-center fw-bold" style="border: none; background: transparent; pointer-events: none; font-weight: bold">
+						<div class="col-8">
+							<h6>• Số tiền giảm tối đa: </h6>
+						</div>
+						<div class = "col-2 mb-1">
+							<input type="text" id="maximumAmount" style="border: none; color:#17a2b8 ;" readonly>
+						</div>
+						<div class = "col-2"></div>
+					</div>
+					<div class="row text-info d-flex align-items-center mb-5">
+						<div class="col-1">
+							<i class="fas fa-ticket"></i>
+						</div>
+						<div class="col-2 text-info">
+							<input type="text" id="title1" style="border: none; color:#17a2b8 ; cursor: pointer;"
+								   data-bs-toggle="modal" data-bs-target="#form2Modal" readonly>
+						</div>
+					</div>
+				</div>
+				<div class="modal fade" id="form2Modal" tabindex="-1" aria-labelledby="form2ModalLabel"
+					 aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered">
+						<div class="modal-content shadow">
+							<div class="modal-header">
+								<h4 class="modal-title" id="form2ModalLabel">Chọn mã giảm giá</h4>
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
+										aria-label="Close"></button>
+							</div>
+							<div class="modal-body" style="max-height: 400px; overflow-y: auto;">
+								<c:if test="${not empty discountList}">
+									<c:forEach items="${discountList}" var="o">
+										<div class="card mb-3">
+											<div class="card-body">
+												<div class="row ps-1">
+													<h5 class="fw-bold">${searchDiscount.name}</h5>
+												</div>
+												<div class="row">
+													<div class="col-2">
+														<div class="fs-3 text-dark pb-2">
+															<i class="fas fa-ticket"></i>
+														</div>
+													</div>
+													<div class="col-10">
+														<strong>${o.code}</strong><br>
+														<p class="text-secondary-emphasis">Hạn sử dụng: ${o.endDate}</p>
+													</div>
+												</div>
+												<div class="row">
+													<h6>• Giảm ${o.discountPercentage}%</h6>
+												</div>
+												<div id="extraContent${o.code}" class="collapse"
+													 data-minimum-invoice-amount="${o.minimumInvoiceAmount}"
+													 data-maximum-amount="${o.maximumAmount}">
+													<h6>• Áp dụng với đơn hàng trên: ${o.minimumInvoiceAmount} VND.</h6>
+													<h6>• Số tiền giảm tối đa: ${o.maximumAmount} VND.</h6>
+												</div>
+
+
+												<div class="row">
+													<div class="col-8">
+														<!-- Sử dụng data-bs-target với id riêng biệt -->
+														<button type="button" class="btn btn-link p-0 text-decoration-none"
+																data-bs-toggle="collapse"
+																data-bs-target="#extraContent${o.code}" aria-expanded="false"
+																aria-controls="extraContent${o.code}"
+																onclick="toggleButtonText(this)">Xem chi tiết ⬎</button>
+													</div>
+													<div class="col-4">
+														<button type="button" class="btn btn-dark w-100"
+																data-bs-dismiss="modal" onclick="applyCoupon(this)"
+																data-code="${o.code}" data-description="${o.name}"
+																data-minInvoiceAmount = "${o.minimumInvoiceAmount}"
+																data-maxAmount = "${o.maximumAmount}"
+																data-percentCoupon="${o.discountPercentage}">Áp dụng</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</c:forEach>
+								</c:if>
+							</div>
+						</div>
+					</div>
+				</div>
+
 				<div class="total-section">
 					<table class="total-table">
 						<thead class="total-table-head">
@@ -224,8 +359,6 @@
 						<a href="${ctx}/shop" class="boxed-btn black">Continue Shopping</a>
 					</div>
 				</div>
-
-
 			</div>
 		</div>
 	</div>
