@@ -65,31 +65,16 @@
                         <ul>
                             <li><a href="${ctx}/admin">Admin</a></li>
                             <li><a href="${ctx}/about">About</a></li>
-                            <li><a href="#">Pages</a>
-                                <ul class="sub-menu">
-                                    <li><a href="${ctx}/WEB-INF/views/error404.jsp">404 page</a></li>
-                                    <li><a href="${ctx}/about">About</a></li>
-                                    <li><a href="${ctx}/WEB-INF/views/cart.jsp">Cart</a></li>
-                                    <li><a href="${ctx}/WEB-INF/views/checkout.html">Check Out</a></li>
-                                    <li><a href="${ctx}/WEB-INF/views/contact.html">Contact</a></li>
-                                    <li><a href="${ctx}/shop">Shop</a></li>
-                                </ul>
-                            </li>
                             <li><a href="${ctx}/WEB-INF/views/contact.html">Contact</a></li>
-                            <li><a href="${ctx}/WEB-INF/views/shop.html">Shop</a>
-                                <ul class="sub-menu">
-                                    <li><a href="${ctx}/WEB-INF/views/shop.html">Shop</a></li>
-                                    <li><a href="${ctx}/WEB-INF/views/checkout.html">Check Out</a></li>
-                                    <li><a href="${ctx}/WEB-INF/views/single-product.html">Single Product</a></li>
-                                    <li><a href="${ctx}/WEB-INF/views/cart.jsp">Cart</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="${ctx}/Cart">Cart</a></li>
+                            <li><a href="${ctx}/shop">Shop</a></li>
                             <li>
                                 <div class="header-icons">
-                                    <a class="shopping-cart" href="${ctx}/WEB-INF/views/cart.jsp"><i class="fas fa-shopping-cart"></i></a>
+                                    <a class="shopping-cart" href="cart.jsp"><i class="fas fa-shopping-cart"></i></a>
                                     <a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
                                 </div>
                             </li>
+
                         </ul>
                     </nav>
                     <a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
@@ -120,76 +105,79 @@
     </div>
 </div>
 
-
-    <!-- breadcrumb-section -->
-    <div class="breadcrumb-section breadcrumb-bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2 text-center">
-                    <div class="breadcrumb-text">
-                        <h1>Shop</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end breadcrumb section -->
-
-    <!-- Products Section -->
-    <div class="product-section mt-150 mb-150">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="product-filters">
-                        <ul>
-                            <li class="active" data-filter="*">All</li>
-                            <c:forEach var="category" items="${categories}">
-                                <li data-filter=".${category.name}">${category.name}</li>
-                            </c:forEach>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Products List -->
-            <div class="row product-lists">
-                <c:forEach var="product" items="${products}">
-                    <div class="col-lg-4 col-md-6 text-center ${product.category.name}">
-                        <div class="single-product-item">
-                            <div class="product-image">
-                                <a href="${ctx}/SingleProduct?id=${product.id}">
-                                    <img src="${product.imageURL}" alt="${product.name}">
-                                </a>
-                            </div>
-                            <h3>${product.name}</h3>
-                            <p class="product-price">${product.price}</p>
-
-                            <form action="${pageContext.request.contextPath}/AddToCart" method="post">
-                                <input type="hidden" name="productId" value="${product.id}">
-                                <input type="hidden" name="quantity" value="1" min="1">
-                                <button type="submit" class="cart-btn" class="fas fa-shopping-cart">Add to Cart</button>
-                            </form>
-                        </div>
-                    </div>
-                </c:forEach>
-            </div>
-        </div>
-        <div>  </div>>
-    </div>
+<!-- breadcrumb-section -->
+<div class="breadcrumb-section breadcrumb-bg">
+    <div class="container">
         <div class="row">
-            <div class="col-lg-12 text-center">
-                <div class="pagination-wrap">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="breadcrumb-text">
+                    <h1>Shop</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end breadcrumb section -->
+
+<!-- Products Section -->
+<div class="product-section mt-150 mb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-filters">
                     <ul>
-                        <li><a href="#">Prev</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a class="active" href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">Next</a></li>
+                        <li class="${param.categoryId == null ? 'active' : ''}" data-filter="*">
+                            <a href="${ctx}/shop">All</a>
+                        </li>
+                        <c:forEach var="category" items="${categories}">
+                            <li class="${param.categoryId == category.id ? 'active' : ''}" data-filter=".${category.name}">
+                                <a href="${ctx}/shop?categoryId=${category.id}">${category.name}</a>
+                            </li>
+                        </c:forEach>
                     </ul>
                 </div>
             </div>
         </div>
+
+        <!-- Products List -->
+        <div class="row product-lists">
+            <c:forEach var="product" items="${products}">
+                <div class="col-lg-4 col-md-6 text-center ${product.category.name}">
+                    <div class="single-product-item">
+                        <div class="product-image">
+                            <a href="${ctx}/SingleProduct?id=${product.id}">
+                                <img src="${product.imageURL}" alt="${product.name}">
+                            </a>
+                        </div>
+                        <h3>${product.name}</h3>
+                        <p class="product-price">${product.price}</p>
+
+                        <form action="${pageContext.request.contextPath}/AddToCart" method="post">
+                            <input type="hidden" name="productId" value="${product.id}">
+                            <input type="hidden" name="quantity" value="1" min="1">
+                            <button type="submit" class="cart-btn" class="fas fa-shopping-cart">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+            </c:forEach>
+        </div>
     </div>
+    <div>  </div>>
+</div>
+<div class="row">
+    <div class="col-lg-12 text-center">
+        <div class="pagination-wrap">
+            <ul>
+                <li><a href="#">Prev</a></li>
+                <li><a href="#">1</a></li>
+                <li><a class="active" href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">Next</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
 </div>
 <!-- end products -->
 

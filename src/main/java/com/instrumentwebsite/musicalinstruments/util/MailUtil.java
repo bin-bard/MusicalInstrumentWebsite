@@ -38,7 +38,7 @@ public class MailUtil {
 
         // 4 - send the message
         Transport transport = session.getTransport();
-        transport.connect("ceoto24@gmail.com", "vkgm qaik lyla zzmj");
+        transport.connect("thanhtai.emaillist@gmail.com", "koxo xejx emml oqlc");
         transport.sendMessage(message, message.getAllRecipients());
         transport.close();
     }

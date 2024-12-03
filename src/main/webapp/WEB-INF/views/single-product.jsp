@@ -1,3 +1,7 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,29 +11,29 @@
   <meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
 
   <!-- title -->
-  <title>Single Product</title>
+  <title>HarmonyHub</title>
 
   <!-- favicon -->
-  <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="shortcut icon" type="image/png" href="${ctx}/assets/img/favicon.png">
   <!-- google font -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
   <!-- fontawesome -->
-  <link rel="stylesheet" href="assets/css/all.min.css">
+  <link rel="stylesheet" href="${ctx}/assets/css/all.min.css">
   <!-- bootstrap -->
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="${ctx}/assets/bootstrap/css/bootstrap.min.css">
   <!-- owl carousel -->
-  <link rel="stylesheet" href="assets/css/owl.carousel.css">
+  <link rel="stylesheet" href="${ctx}/assets/css/owl.carousel.css">
   <!-- magnific popup -->
-  <link rel="stylesheet" href="assets/css/magnific-popup.css">
+  <link rel="stylesheet" href="${ctx}/assets/css/magnific-popup.css">
   <!-- animate css -->
-  <link rel="stylesheet" href="assets/css/animate.css">
+  <link rel="stylesheet" href="${ctx}/assets/css/animate.css">
   <!-- mean menu css -->
-  <link rel="stylesheet" href="assets/css/meanmenu.min.css">
+  <link rel="stylesheet" href="${ctx}/assets/css/meanmenu.min.css">
   <!-- main style -->
-  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="${ctx}/assets/css/main.css">
   <!-- responsive -->
-  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="${ctx}/assets/css/responsive.css">
 
 </head>
 <body>
@@ -50,8 +54,8 @@
         <div class="main-menu-wrap">
           <!-- logo -->
           <div class="site-logo">
-            <a href="index.jsp">
-              <img src="assets/img/logo.png" alt="">
+            <a href="${ctx}">
+              <img src="${ctx}/assets/img/logo.png" alt="">
             </a>
           </div>
           <!-- logo -->
@@ -59,45 +63,11 @@
           <!-- menu start -->
           <nav class="main-menu">
             <ul>
-              <li class="current-list-item"><a href="#">Home</a>
-                <ul class="sub-menu">
-                  <li><a href="index.jsp">Static Home</a></li>
-                  <li><a href="index.jsp">Slider Home</a></li>
-                </ul>
-              </li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="#">Pages</a>
-                <ul class="sub-menu">
-                  <li><a href="error404.jsp">404 page</a></li>
-                  <li><a href="about.html">About</a></li>
-                  <li><a href="cart.jsp">Cart</a></li>
-                  <li><a href="checkout.html">Check Out</a></li>
-                  <li><a href="contact.html">Contact</a></li>
-                  <li><a href="news.html">News</a></li>
-                  <li><a href="shop.html">Shop</a></li>
-                </ul>
-              </li>
-              <li><a href="news.html">News</a>
-                <ul class="sub-menu">
-                  <li><a href="news.html">News</a></li>
-                  <li><a href="single-news.html">Single News</a></li>
-                </ul>
-              </li>
-              <li><a href="contact.html">Contact</a></li>
-              <li><a href="shop.html">Shop</a>
-                <ul class="sub-menu">
-                  <li><a href="shop.html">Shop</a></li>
-                  <li><a href="checkout.html">Check Out</a></li>
-                  <li><a href="single-product.html">Single Product</a></li>
-                  <li><a href="cart.jsp">Cart</a></li>
-                </ul>
-              </li>
-              <li>
-                <div class="header-icons">
-                  <a class="shopping-cart" href="cart.jsp"><i class="fas fa-shopping-cart"></i></a>
-                  <a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
-                </div>
-              </li>
+              <li><a href="${ctx}/admin">Admin</a></li>
+              <li><a href="${ctx}/about">About</a></li>
+              <li><a href="${ctx}/WEB-INF/views/contact.html">Contact</a></li>
+              <li><a href="${ctx}/Cart</a></li>
+							<li><a href="${ctx}/shop">Shop</a></li>
             </ul>
           </nav>
           <a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
@@ -109,25 +79,6 @@
   </div>
 </div>
 <!-- end header -->
-
-<!-- search area -->
-<div class="search-area">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <span class="close-btn"><i class="fas fa-window-close"></i></span>
-        <div class="search-bar">
-          <div class="search-bar-tablecell">
-            <h3>Search For:</h3>
-            <input type="text" placeholder="Keywords">
-            <button type="submit">Search <i class="fas fa-search"></i></button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- end search arewa -->
 
 <!-- breadcrumb-section -->
 <div class="breadcrumb-section breadcrumb-bg">
@@ -150,27 +101,31 @@
     <div class="row">
       <div class="col-md-5">
         <div class="single-product-img">
-          <img src="assets/img/products/product-img-5.jpg" alt="">
+          <img src="${product.imageURL}" alt="${product.name}">
         </div>
       </div>
       <div class="col-md-7">
         <div class="single-product-content">
-          <h3>Green apples have polyphenols</h3>
-          <p class="single-product-pricing"><span>Per Kg</span> $50</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta sint dignissimos, rem commodi cum voluptatem quae reprehenderit repudiandae ea tempora incidunt ipsa, quisquam animi perferendis eos eum modi! Tempora, earum.</p>
+          <h3>${product.name}</h3>
+          <p class="single-product-pricing"><span> </span> $${product.price}</p>
+          <p>${product.description}</p>
           <div class="single-product-form">
-            <form action="index.jsp">
-              <input type="number" placeholder="0">
+            <form action="${ctx}/AddToCart" method="post">
+              <input type="hidden" name="productId" value="${product.id}">
+              <input type="number" name="quantity" value="1" min="1">
+              <div class="cart-buttons">
+              <button type="submit" class="boxed-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+              </div>
+
             </form>
-            <a href="cart.jsp" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-            <p><strong>Categories: </strong>Fruits, Organic</p>
+            <p><strong>Categories: </strong>${product.category.name}</p>
           </div>
           <h4>Share:</h4>
           <ul class="product-share">
-            <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href=""><i class="fab fa-twitter"></i></a></li>
-            <li><a href=""><i class="fab fa-google-plus-g"></i></a></li>
-            <li><a href=""><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
           </ul>
         </div>
       </div>

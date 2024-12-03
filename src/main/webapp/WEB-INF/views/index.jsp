@@ -68,6 +68,31 @@
 							<li><a href="${ctx}/WEB-INF/views/contact.html">Contact</a></li>
 							<li><a href="${ctx}/Cart">Cart</a></li>
 							<li><a href="${ctx}/shop">Shop</a></li>
+							<li>
+								<div class="header-icons">
+									<div class="header-icons">
+										<a class="shopping-cart" href="cart.jsp"><i class="fas fa-shopping-cart"></i></a>
+										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+										<c:choose>
+											<c:when test="${empty sessionScope.user}">
+												<a href="${ctx}/login" class="cart-btn">
+													<i class="fas fa-sign-in-alt"></i> Login
+												</a>
+											</c:when>
+											<c:otherwise>
+												<a href="${ctx}/profile" class="cart-btn">
+													<i class="fas fa-user"></i> My Profile
+												</a>
+												<a href="javascript:void(0)" class="cart-btn" onclick="confirmLogout()">
+													<i class="fas fa-sign-out-alt"></i> Logout
+												</a>
+											</c:otherwise>
+										</c:choose>
+
+									</div>
+								</div>
+							</li>
+
 						</ul>
 					</nav>
 					<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
@@ -560,6 +585,26 @@
 <script src="${ctx}/assets/js/sticker.js"></script>
 <!-- main js -->
 <script src="${ctx}/assets/js/main.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+function confirmLogout() {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You will be logged out of your account!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, logout!',
+        cancelButtonText: 'Cancel'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = '${ctx}/logout';
+        }
+    });
+}
+</script>
 
 </body>
 </html>
