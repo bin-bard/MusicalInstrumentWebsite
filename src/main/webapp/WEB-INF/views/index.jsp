@@ -494,17 +494,18 @@
 		<div class="row">
 			<div class="col-lg-3 col-md-6">
 				<div class="footer-box about-widget">
-					<h2 class="widget-title">About us</h2>
-					<p>Ut enim ad minim veniam perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae.</p>
+					<h2 class="widget-title">GIỚI THIỆU</h2>
+					<p>Đây là hệ thống nhạc cụ chuyên cung cấp các loại nhạc cụ như: Piano, Guitar, Organ, Ukulele và những loại nhạc cụ phổ biến khác.</p>
 				</div>
 			</div>
 			<div class="col-lg-3 col-md-6">
 				<div class="footer-box get-in-touch">
-					<h2 class="widget-title">Get in Touch</h2>
+					<h2 class="widget-title">LIÊN HỆ</h2>
 					<ul>
-						<li>34/8, East Hukupara, Gifirtok, Sadan.</li>
-						<li>support@fruitkha.com</li>
-						<li>+00 111 222 3333</li>
+						<li>Số 8 đường 379, Tăng Nhơn Phú A, Thủ Đức</li>
+						<li>hungnth036@gmail.com</li>
+						<li>+84 56 88 555 99</li>
+						<li>ZAlO: 083 704 1119</li>
 					</ul>
 				</div>
 			</div>
@@ -522,8 +523,8 @@
 			</div>
 			<div class="col-lg-3 col-md-6">
 				<div class="footer-box subscribe">
-					<h2 class="widget-title">Subscribe</h2>
-					<p>Subscribe to our mailing list to get the latest updates.</p>
+					<h2 class="widget-title">ĐĂNG KÝ</h2>
+					<p>Đăng ký để nhận được những thông tin và ưu đãi mới nhất.</p>
 					<form action="index.jsp">
 						<input type="email" placeholder="Email">
 						<button type="submit"><i class="fas fa-paper-plane"></i></button>
@@ -540,8 +541,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6 col-md-12">
-				<p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>,  All Rights Reserved.<br>
-					Distributed By - <a href="https://themewagon.com/">Themewagon</a>
+				<p>Copyrights &copy; 2024- <a href="https://www.facebook.com/an.nguyen.242">THAN Team</a>,  All Rights Reserved.<br>
+					By - <a href="https://www.facebook.com/an.nguyen.242">An Hung Tai Nang</a>
 				</p>
 			</div>
 			<div class="col-lg-6 text-right col-md-12">
