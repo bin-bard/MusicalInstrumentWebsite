@@ -73,6 +73,31 @@ public Product findById(Long productId) {
         }
     }
 
+    // Phương thức tìm sản phẩm theo loại nhạc cụ (category)
+    public List<Product> findByCategory(Long categoryId) {
+        try (EntityManager em = emf.createEntityManager()) {
+            return em.createQuery("SELECT p FROM Product p WHERE p.category.id = :categoryId", Product.class)
+                    .setParameter("categoryId", categoryId)
+                    .getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    // Phương thức tìm tất cả sản phẩm
+    public List<Product> findAll() {
+        try (EntityManager em = emf.createEntityManager()) {
+            return em.createQuery("SELECT p FROM Product p", Product.class)
+                    .getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+
+
 
 
     public static void main(String[] args) {

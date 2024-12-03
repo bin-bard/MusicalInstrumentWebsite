@@ -68,7 +68,7 @@
                                 <ul class="sub-menu">
                                     <li><a href="error404.jsp">404 page</a></li>
                                     <li><a href="${ctx}/about">About</a></li>
-                                    <li><a href="cart.html">Cart</a></li>
+                                    <li><a href="cart.jsp">Cart</a></li>
                                     <li><a href="checkout.html">Check Out</a></li>
                                     <li><a href="contact.html">Contact</a></li>
                                     <li><a href="news.html">News</a></li>
@@ -87,12 +87,12 @@
                                     <li><a href="shop.html">Shop</a></li>
                                     <li><a href="checkout.html">Check Out</a></li>
                                     <li><a href="single-product.html">Single Product</a></li>
-                                    <li><a href="cart.html">Cart</a></li>
+                                    <li><a href="cart.jsp">Cart</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <div class="header-icons">
-                                    <a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+                                    <a class="shopping-cart" href="cart.jsp"><i class="fas fa-shopping-cart"></i></a>
                                     <a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
                                 </div>
                             </li>
