@@ -250,8 +250,8 @@
 					<div class="product-image">
 						<a href="${ctx}/WEB-INF/views/single-product.html"><img src="${ctx}/assets/img/products/product-img-1.jpg" alt=""></a>
 					</div>
-					<h3>Strawberry</h3>
-					<p class="product-price"><span>Per Kg</span> 85$ </p>
+					<h3>Guitar</h3>
+					<p class="product-price"><span>Per Unit</span> 85$ </p>
 					<a href="${ctx}/WEB-INF/views/cart.jsp" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 				</div>
 			</div>
@@ -260,8 +260,8 @@
 					<div class="product-image">
 						<a href="${ctx}/WEB-INF/views/single-product.html"><img src="${ctx}/assets/img/products/product-img-2.jpg" alt=""></a>
 					</div>
-					<h3>Berry</h3>
-					<p class="product-price"><span>Per Kg</span> 70$ </p>
+					<h3>Guitar</h3>
+					<p class="product-price"><span>Per Unit</span> 70$ </p>
 					<a href="${ctx}/WEB-INF/views/cart.jsp" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 				</div>
 			</div>
@@ -270,8 +270,8 @@
 					<div class="product-image">
 						<a href="${ctx}/WEB-INF/views/single-product.html"><img src="${ctx}/assets/img/products/product-img-3.jpg" alt=""></a>
 					</div>
-					<h3>Lemon</h3>
-					<p class="product-price"><span>Per Kg</span> 35$ </p>
+					<h3>Flute</h3>
+					<p class="product-price"><span>Per Unit</span> 35$ </p>
 					<a href="${ctx}/WEB-INF/views/cart.jsp" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 				</div>
 			</div>
@@ -290,7 +290,7 @@
 					<div class="price-box">
 						<div class="inner-price">
                                 <span class="price">
-                                    <strong>30%</strong> <br> off per kg
+                                    <strong>30%</strong> <br> off Per Unit
                                 </span>
 						</div>
 					</div>
@@ -300,7 +300,7 @@
 			<!--Content Column-->
 			<div class="content-column col-lg-6">
 				<h3><span class="orange-text">Deal</span> of the month</h3>
-				<h4>Hikan Strwaberry</h4>
+				<h4>Tango Violin</h4>
 				<div class="text">Quisquam minus maiores repudiandae nobis, minima saepe id, fugit ullam similique! Beatae, minima quisquam molestias facere ea. Perspiciatis unde omnis iste natus error sit voluptatem accusant</div>
 				<!--Countdown Timer-->
 				<div class="time-counter"><div class="time-countdown clearfix" data-countdown="2020/2/01"><div class="counter-column"><div class="inner"><span class="count">00</span>Days</div></div> <div class="counter-column"><div class="inner"><span class="count">00</span>Hours</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Mins</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Secs</div></div></div></div>
@@ -322,7 +322,7 @@
 							<img src="${ctx}/assets/img/avaters/avatar1.png" alt="">
 						</div>
 						<div class="client-meta">
-							<h3>Saira Hakim <span>Local shop owner</span></h3>
+							<h3>An<span>Local shop owner</span></h3>
 							<p class="testimonial-body">
 								" Sed ut perspiciatis unde omnis iste natus error veritatis et  quasi architecto beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium "
 							</p>
@@ -336,7 +336,7 @@
 							<img src="${ctx}/assets/img/avaters/avatar2.png" alt="">
 						</div>
 						<div class="client-meta">
-							<h3>David Niph <span>Local shop owner</span></h3>
+							<h3>Nang <span>Local shop owner</span></h3>
 							<p class="testimonial-body">
 								" Sed ut perspiciatis unde omnis iste natus error veritatis et  quasi architecto beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium "
 							</p>
@@ -350,7 +350,7 @@
 							<img src="${ctx}/assets/img/avaters/avatar3.png" alt="">
 						</div>
 						<div class="client-meta">
-							<h3>Jacob Sikim <span>Local shop owner</span></h3>
+							<h3>Hung<span>Local shop owner</span></h3>
 							<p class="testimonial-body">
 								" Sed ut perspiciatis unde omnis iste natus error veritatis et  quasi architecto beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium "
 							</p>
@@ -377,8 +377,8 @@
 			</div>
 			<div class="col-lg-6 col-md-12">
 				<div class="abt-text">
-					<p class="top-sub">Since Year 1999</p>
-					<h2>We are <span class="orange-text">Fruitkha</span></h2>
+					<p class="top-sub">Since Year 2024</p>
+					<h2>We are <span class="orange-text">HarmonyHub</span></h2>
 					<p>Etiam vulputate ut augue vel sodales. In sollicitudin neque et massa porttitor vestibulum ac vel nisi. Vestibulum placerat eget dolor sit amet posuere. In ut dolor aliquet, aliquet sapien sed, interdum velit. Nam eu molestie lorem.</p>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente facilis illo repellat veritatis minus, et labore minima mollitia qui ducimus.</p>
 					<a href="${ctx}/WEB-INF/views/about.html" class="boxed-btn mt-4">know more</a>

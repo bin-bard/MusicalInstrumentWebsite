@@ -10,7 +10,7 @@ public abstract class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-co
+
     private String firstName;
     private String lastName;
 
