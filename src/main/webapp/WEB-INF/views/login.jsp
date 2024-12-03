@@ -11,7 +11,7 @@
   <meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
   <meta name="author" content="Dreamguys - Bootstrap Admin Template">
   <meta name="robots" content="noindex, nofollow">
-  <title>Register Account</title>
+  <title>Login</title>
 
   <link rel="shortcut icon" type="image/x-icon" href="${ctx}/assets/img/favicon.jpg">
   <link rel="stylesheet" href="${ctx}/assets/css/bootstrap.min.css">
@@ -30,47 +30,18 @@
             <img src="${ctx}/assets/img/logo.png" alt="img">
           </div>
           <div class="login-userheading">
-            <h3>Register Account</h3>
-            <h4>Please fill in the registration information</h4>
+            <h3>Login</h3>
+            <h4>Please enter your login details</h4>
           </div>
 
-          <form method="post" action="${ctx}/register">
+          <form method="post" action="${ctx}/login" id="loginForm">
             <div class="form-login">
-              <label>Last Name</label>
+              <label>Email or Username</label>
               <div class="form-addons">
-                <input type="text" name="firstName" placeholder="Enter your last name" required>
+                <input type="text" name="emailOrUsername" placeholder="Enter your email or username" required>
               </div>
             </div>
-
-            <div class="form-login">
-              <label>First Name</label>
-              <div class="form-addons">
-                <input type="text" name="lastName" placeholder="Enter your first name" required>
-              </div>
-            </div>
-
-            <div class="form-login">
-              <label>Email</label>
-              <div class="form-addons">
-                <input type="email" name="email" placeholder="Enter your email" required>
-                <img src="${ctx}/assets/img/icons/mail.svg" alt="img">
-              </div>
-            </div>
-
-            <div class="form-login">
-              <label>Phone Number</label>
-              <div class="form-addons">
-                <input type="text" name="phoneNumber" placeholder="Enter your phone number" required>
-              </div>
-            </div>
-
-            <div class="form-login">
-              <label>Username</label>
-              <div class="form-addons">
-                <input type="text" name="username" placeholder="Enter your username" required>
-              </div>
-            </div>
-
+          
             <div class="form-login">
               <label>Password</label>
               <div class="pass-group">
@@ -78,20 +49,50 @@
                 <span class="fas toggle-password fa-eye-slash"></span>
               </div>
             </div>
-
+          
             <div class="form-login">
-              <button type="submit" class="btn btn-login">Register</button>
+              <button type="submit" class="btn btn-login">Login</button>
             </div>
           </form>
+
+          <script>
+          document.getElementById('loginForm').addEventListener('submit', function(e) {
+              e.preventDefault();
+              const form = this;
+              
+              fetch(form.action, {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/x-www-form-urlencoded',
+                  },
+                  body: new URLSearchParams(new FormData(form))
+              })
+              .then(response => response.json())
+              .then(data => {
+                  console.log('Response data:', data);
+                  if (data.success) {
+                      console.log('Redirecting to:', '${ctx}/');
+                      window.location.href = '${ctx}/';
+                  } else {
+                      console.log('Login failed:', data.error);
+                      document.querySelector('.text-danger').textContent = data.error || 'Login failed';
+                  }
+              })
+              .catch(error => {
+                  console.error('Error:', error);
+                  document.querySelector('.text-danger').textContent = 'An error occurred during login';
+              });
+          });
+          </script>
 
           <p class="text-danger mt-3">${error != null ? error : ""}</p>
 
           <div class="signinform text-center">
-            <h4>Already have an account? <a href="${ctx}/login" class="hover-a">Login</a></h4>
+            <h4>Don't have an account? <a href="${ctx}/register" class="hover-a">Register</a></h4>
           </div>
 
           <div class="form-setlogin">
-            <h4>Or register with</h4>
+            <h4>Or login with</h4>
           </div>
 
           <div class="form-sociallink">
@@ -99,13 +100,13 @@
               <li>
                 <a href="javascript:void(0);">
                   <img src="${ctx}/assets/img/icons/google.png" class="me-2" alt="google">
-                  Register with Google
+                  Login with Google
                 </a>
               </li>
               <li>
                 <a href="javascript:void(0);">
                   <img src="${ctx}/assets/img/icons/facebook.png" class="me-2" alt="facebook">
-                  Register with Facebook
+                  Login with Facebook
                 </a>
               </li>
             </ul>
