@@ -125,7 +125,9 @@
                   </a>
                   <ul class="dropdown-menu">
                     <li>
-                      <a href="${ctx}/admin-updateorder" class="dropdown-item"><img src="assets/img/icons/edit.svg" class="me-2" alt="img">Edit Sale</a>
+                      <a href="${pageContext.request.contextPath}/admin-updateorder?id=${order[3]}" class="dropdown-item">
+                        <img src="assets/img/icons/edit.svg" class="me-2" alt="img">Edit Sale
+                      </a>
                     </li>
                     <li>
                       <a href="javascript:void(0);" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#showpayment"><img src="assets/img/icons/dollar-square.svg" class="me-2" alt="img">Show Payments</a>
