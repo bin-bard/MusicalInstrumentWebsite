@@ -152,7 +152,7 @@
             <a href="single-product.html"><img src="assets/img/products/product-img-1.jpg" alt=""></a>
           </div>
           <h3>Guitar</h3>
-          <p class="product-price"><span>Per unit</span> 85$ </p>
+          <p class="product-price"><span>Per Kg</span> 85$ </p>
           <a href="cart.jsp" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
         </div>
       </div>
@@ -162,7 +162,7 @@
             <a href="single-product.html"><img src="assets/img/products/product-img-2.jpg" alt=""></a>
           </div>
           <h3>Brown Guitar</h3>
-          <p class="product-price"><span>Per unit</span> 70$ </p>
+          <p class="product-price"><span>Per Kg</span> 70$ </p>
           <a href="cart.jsp" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
         </div>
       </div>
@@ -172,7 +172,7 @@
             <a href="single-product.html"><img src="assets/img/products/product-img-3.jpg" alt=""></a>
           </div>
           <h3>Flute</h3>
-          <p class="product-price"><span>Per unit</span> 35$ </p>
+          <p class="product-price"><span>Per Kg</span> 35$ </p>
           <a href="cart.jsp" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
         </div>
       </div>
