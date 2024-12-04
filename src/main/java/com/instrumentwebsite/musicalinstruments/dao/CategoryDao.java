@@ -63,7 +63,10 @@ public class CategoryDao {
                     .getSingleResult();
             return count > 0;
         } finally {
-            em.close();
+             if (em != null) {
+                em.close(); // Đóng EntityManager
+            }
+           
         }
     }
 
@@ -74,7 +77,10 @@ public class CategoryDao {
             em.merge(category);
             em.getTransaction().commit();
         } finally {
-            em.close();
+             if (em != null) {
+                em.close(); // Đóng EntityManager
+            }
+          
         }
     }
 

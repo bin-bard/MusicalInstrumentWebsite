@@ -26,7 +26,10 @@ public class OrderDao {
             TypedQuery<Object[]> query = em.createQuery(jpql, Object[].class);
             return query.getResultList();
         } finally {
-            em.close();
+             if (em != null) {
+                em.close(); // Đóng EntityManager
+             }
+        
         }
     }
 
@@ -36,7 +39,7 @@ public class OrderDao {
             String jpql = "SELECT o FROM Order o " +
                     "LEFT JOIN FETCH o.customer c " +
                     "LEFT JOIN FETCH o.shippingAddress " +
-                    "LEFT JOIN FETCH o.orderItems oi " + // Thêm dòng này
+                    "LEFT JOIN FETCH o.orderItems oi " + 
                     "WHERE o.id = :id";
             TypedQuery<Order> query = em.createQuery(jpql, Order.class);
             query.setParameter("id", id);
@@ -54,7 +57,9 @@ public class OrderDao {
             System.out.println("Không tìm thấy đơn hàng với ID: " + id);
             return null;
         } finally {
-            em.close();
+            if (em != null) {
+                em.close(); // Đóng EntityManager
+            }
         }
     }
 
@@ -72,7 +77,9 @@ public class OrderDao {
             }
             throw e;
         } finally {
-            em.close();
+             if (em != null) {
+                em.close(); // Đóng EntityManager
+            }
         }
     }
 
@@ -104,10 +111,29 @@ public class OrderDao {
             }
             em.getTransaction().commit();
         } finally {
-            em.close();
+             if (em != null) {
+               em.close(); // Đóng EntityManager
+           }
+           
         }
     }
 
+    public boolean hasPurchasedProduct(Long customerId, Long productId) {
+        EntityManager em = emf.createEntityManager();
+        
+        try {
+           
+            String query = "SELECT COUNT(o) FROM Order o JOIN o.orderItems i " +
+             "WHERE o.customer.id = :customerId AND i.product.id = :productId";
+            long count = (Long) em.createQuery(query)
+                                  .setParameter("customerId", customerId)
+                                  .setParameter("productId", productId)
+                                  .getSingleResult();
+            return count > 0;  // Trả về true nếu có đơn hàng với sản phẩm này
+        } finally {
+            em.close();
+        }
+    }
 
 
     public static void main(String[] args) {
