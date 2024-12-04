@@ -34,22 +34,17 @@ public class DatabaseInitializer implements ServletContextListener {
             Account existingAdmin = accountDao.findByUsername("admin");
             if (existingAdmin == null) {
                 logger.info("No existing admin found, creating new admin account");
-
+                
                 Account adminAccount = new Account("admin", "admin123");
                 adminAccount.setVerified(true);
 
                 Admin admin = new Admin("Admin", "User", "admin@harmonyhub.com", "0123456789");
-
-                // Lưu Admin trước
-                usersDao.save(admin);
-
-                // Thiết lập mối quan hệ
                 admin.setAccount(adminAccount);
                 adminAccount.setUser(admin);
 
-                // Sau đó lưu Account
                 accountDao.save(adminAccount);
-
+                usersDao.save(admin);
+                
                 logger.info("Admin account created successfully");
             } else {
                 logger.info("Admin account already exists");

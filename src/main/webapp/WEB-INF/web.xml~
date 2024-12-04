@@ -15,8 +15,5 @@
         <location>/WEB-INF/views/error404.jsp</location>
     </error-page>
 
-    <listener>
-        <listener-class>com.instrumentwebsite.musicalinstruments.util.DatabaseInitializer</listener-class>
-    </listener>
 </web-app>
 
