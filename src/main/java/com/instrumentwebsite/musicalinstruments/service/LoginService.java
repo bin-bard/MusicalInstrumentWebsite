@@ -10,18 +10,17 @@ public class LoginService {
     private UsersDao usersDao = new UsersDao();
 
     public boolean authenticate(String emailOrUsername, String password) throws Exception {
-        // Kiểm tra đăng nhập bằng username
         Account account = accountDao.findByUsername(emailOrUsername);
+        if (account == null) {
+            account = accountDao.findByEmail(emailOrUsername);
+        }
+
         if (account != null && account.getPassword().equals(password)) {
+            if (!account.isVerified()) {
+                throw new Exception("Please verify your email address before logging in.");
+            }
             return true;
         }
-
-        // Kiểm tra đăng nhập bằng email
-        Users user = usersDao.findByEmail(emailOrUsername);
-        if (user != null && user.getAccount().getPassword().equals(password)) {
-            return true;
-        }
-
         return false;
     }
 }

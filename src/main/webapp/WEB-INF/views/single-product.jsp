@@ -65,7 +65,7 @@
             <ul>
               <li><a href="${ctx}/admin">Admin</a></li>
               <li><a href="${ctx}/about">About</a></li>
-              <li><a href="${ctx}/WEB-INF/views/contact.html">Contact</a></li>
+              <li><a href="${ctx}/WEB-INF/views/admin/contact.html">Contact</a></li>
               <li><a href="${ctx}/Cart</a></li>
 							<li><a href="${ctx}/shop">Shop</a></li>
             </ul>
@@ -237,7 +237,7 @@
             <li><a href="about.html">About</a></li>
             <li><a href="services.html">Shop</a></li>
             <li><a href="news.html">News</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="admin/contact.html">Contact</a></li>
           </ul>
         </div>
       </div>

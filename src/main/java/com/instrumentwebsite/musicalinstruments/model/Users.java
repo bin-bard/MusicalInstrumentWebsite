@@ -1,16 +1,12 @@
 package com.instrumentwebsite.musicalinstruments.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Column;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "users")
-public class Users {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "user_type")
+public abstract class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,26 +14,31 @@ public class Users {
     private String firstName;
     private String lastName;
 
-    @Column(unique = true) // email là duy nhất
+    @Column(unique = true)
     private String email;
 
     @Column(length = 15)
-    private String phoneNumber; // Số điện thoại
+    private String phoneNumber;
 
-    @OneToOne // Mối quan hệ một-một với Account
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "username")
     private Account account;
 
-    // Constructors
-    public Users() {}
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Role role;
 
-    public Users(String firstName, String lastName, String email, String phoneNumber) {
+    // Constructors
+    protected Users() {}
+
+    protected Users(String firstName, String lastName, String email, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phoneNumber = phoneNumber;
     }
 
-    // Getters and Setters
+    // Getters and Setters giữ nguyên như cũ
     public Long getId() {
         return id;
     }
@@ -84,5 +85,16 @@ public class Users {
 
     public void setAccount(Account account) {
         this.account = account;
+        if (account != null && account.getUser() != this) {
+            account.setUser(this);
+        }
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    protected void setRole(Role role) {
+        this.role = role;
     }
 }

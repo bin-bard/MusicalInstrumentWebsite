@@ -60,7 +60,14 @@
             <div class="form-login">
               <label>Phone Number</label>
               <div class="form-addons">
-                <input type="text" name="phoneNumber" placeholder="Enter your phone number" required>
+                <input type="text" 
+                       name="phoneNumber" 
+                       placeholder="Enter your phone number" 
+                       pattern="[0-9]{9,}" 
+                       minlength="9"
+                       title="Phone number must be at least 9 digits"
+                       required
+                       oninput="validatePhoneNumber(this)">
               </div>
             </div>
 
@@ -123,5 +130,25 @@
 <script src="${ctx}/assets/js/feather.min.js"></script>
 <script src="${ctx}/assets/js/bootstrap.bundle.min.js"></script>
 <script src="${ctx}/assets/js/script.js"></script>
+
+<script>
+function validatePhoneNumber(input) {
+    // Chỉ giữ lại các ký tự số
+    input.value = input.value.replace(/[^0-9]/g, '');
+    
+    // Đảm bảo số điện thoại bắt đầu bằng số 0
+    if (input.value.length > 0 && input.value[0] !== '0') {
+        input.value = '0' + input.value;
+    }
+
+    // Hiển thị thông báo nếu số điện thoại chưa đủ 9 số
+    if (input.value.length > 0 && input.value.length < 9) {
+        input.setCustomValidity('Phone number must be at least 9 digits');
+    } else {
+        input.setCustomValidity('');
+    }
+}
+</script>
+
 </body>
 </html>

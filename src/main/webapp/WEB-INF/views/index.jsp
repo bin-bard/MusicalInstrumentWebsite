@@ -65,13 +65,31 @@
 						<ul>
 							<li><a href="${ctx}/admin">Admin</a></li>
 							<li><a href="${ctx}/about">About</a></li>
-							<li><a href="${ctx}/WEB-INF/views/contact.html">Contact</a></li>
+							<li><a href="${ctx}/WEB-INF/views/admin/contact.html">Contact</a></li>
 							<li><a href="${ctx}/Cart">Cart</a></li>
 							<li><a href="${ctx}/shop">Shop</a></li>
 							<li>
 								<div class="header-icons">
-									<a class="shopping-cart" href="cart.jsp"><i class="fas fa-shopping-cart"></i></a>
-									<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+									<div class="header-icons">
+										<a class="shopping-cart" href="cart.jsp"><i class="fas fa-shopping-cart"></i></a>
+										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+										<c:choose>
+											<c:when test="${empty sessionScope.user}">
+												<a href="${ctx}/login" class="cart-btn">
+													<i class="fas fa-sign-in-alt"></i> Login
+												</a>
+											</c:when>
+											<c:otherwise>
+												<a href="${ctx}/profile" class="cart-btn">
+													<i class="fas fa-user"></i> My Profile
+												</a>
+												<a href="javascript:void(0)" class="cart-btn" onclick="confirmLogout()">
+													<i class="fas fa-sign-out-alt"></i> Logout
+												</a>
+											</c:otherwise>
+										</c:choose>
+
+									</div>
 								</div>
 							</li>
 
@@ -120,8 +138,8 @@
 							<p class="subtitle">Melodic & Authentic</p>
 							<h1>Unleash Your Tone</h1>
 							<div class="hero-btns">
-								<a href="${ctx}/WEB-INF/views/shop.html" class="boxed-btn">Instrument Collection</a>
-								<a href="${ctx}/WEB-INF/views/contact.html" class="bordered-btn">Contact Us</a>
+								<a href="${ctx}/WEB-INF/views/admin/shop.html" class="boxed-btn">Instrument Collection</a>
+								<a href="${ctx}/WEB-INF/views/admin/contact.html" class="bordered-btn">Contact Us</a>
 							</div>
 						</div>
 					</div>
@@ -139,8 +157,8 @@
 							<p class="subtitle">Rhythmic Flow</p>
 							<h1>Strum Your Soul</h1>
 							<div class="hero-btns">
-								<a href="${ctx}/WEB-INF/views/shop.html" class="boxed-btn">Visit Shop</a>
-								<a href="${ctx}/WEB-INF/views/contact.html" class="bordered-btn">Contact Us</a>
+								<a href="${ctx}/WEB-INF/views/admin/shop.html" class="boxed-btn">Visit Shop</a>
+								<a href="${ctx}/WEB-INF/views/admin/contact.html" class="bordered-btn">Contact Us</a>
 							</div>
 						</div>
 					</div>
@@ -158,8 +176,8 @@
 							<p class="subtitle">Harmonic Resonance</p>
 							<h1>Play Your Passion</h1>
 							<div class="hero-btns">
-								<a href="${ctx}/WEB-INF/views/shop.html" class="boxed-btn">Visit Shop</a>
-								<a href="${ctx}/WEB-INF/views/contact.html" class="bordered-btn">Contact Us</a>
+								<a href="${ctx}/WEB-INF/views/admin/shop.html" class="boxed-btn">Visit Shop</a>
+								<a href="${ctx}/WEB-INF/views/admin/contact.html" class="bordered-btn">Contact Us</a>
 							</div>
 						</div>
 					</div>
@@ -232,8 +250,8 @@
 					<div class="product-image">
 						<a href="${ctx}/WEB-INF/views/single-product.html"><img src="${ctx}/assets/img/products/product-img-1.jpg" alt=""></a>
 					</div>
-					<h3>Strawberry</h3>
-					<p class="product-price"><span>Per Kg</span> 85$ </p>
+					<h3>Guitar</h3>
+					<p class="product-price"><span>Per Unit</span> 85$ </p>
 					<a href="${ctx}/WEB-INF/views/cart.jsp" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 				</div>
 			</div>
@@ -242,8 +260,8 @@
 					<div class="product-image">
 						<a href="${ctx}/WEB-INF/views/single-product.html"><img src="${ctx}/assets/img/products/product-img-2.jpg" alt=""></a>
 					</div>
-					<h3>Berry</h3>
-					<p class="product-price"><span>Per Kg</span> 70$ </p>
+					<h3>Guitar</h3>
+					<p class="product-price"><span>Per Unit</span> 70$ </p>
 					<a href="${ctx}/WEB-INF/views/cart.jsp" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 				</div>
 			</div>
@@ -252,8 +270,8 @@
 					<div class="product-image">
 						<a href="${ctx}/WEB-INF/views/single-product.html"><img src="${ctx}/assets/img/products/product-img-3.jpg" alt=""></a>
 					</div>
-					<h3>Lemon</h3>
-					<p class="product-price"><span>Per Kg</span> 35$ </p>
+					<h3>Flute</h3>
+					<p class="product-price"><span>Per Unit</span> 35$ </p>
 					<a href="${ctx}/WEB-INF/views/cart.jsp" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 				</div>
 			</div>
@@ -272,7 +290,7 @@
 					<div class="price-box">
 						<div class="inner-price">
                                 <span class="price">
-                                    <strong>30%</strong> <br> off per kg
+                                    <strong>30%</strong> <br> off Per Unit
                                 </span>
 						</div>
 					</div>
@@ -282,7 +300,7 @@
 			<!--Content Column-->
 			<div class="content-column col-lg-6">
 				<h3><span class="orange-text">Deal</span> of the month</h3>
-				<h4>Hikan Strwaberry</h4>
+				<h4>Tango Violin</h4>
 				<div class="text">Quisquam minus maiores repudiandae nobis, minima saepe id, fugit ullam similique! Beatae, minima quisquam molestias facere ea. Perspiciatis unde omnis iste natus error sit voluptatem accusant</div>
 				<!--Countdown Timer-->
 				<div class="time-counter"><div class="time-countdown clearfix" data-countdown="2020/2/01"><div class="counter-column"><div class="inner"><span class="count">00</span>Days</div></div> <div class="counter-column"><div class="inner"><span class="count">00</span>Hours</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Mins</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Secs</div></div></div></div>
@@ -304,7 +322,7 @@
 							<img src="${ctx}/assets/img/avaters/avatar1.png" alt="">
 						</div>
 						<div class="client-meta">
-							<h3>Saira Hakim <span>Local shop owner</span></h3>
+							<h3>An<span>Local shop owner</span></h3>
 							<p class="testimonial-body">
 								" Sed ut perspiciatis unde omnis iste natus error veritatis et  quasi architecto beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium "
 							</p>
@@ -318,7 +336,7 @@
 							<img src="${ctx}/assets/img/avaters/avatar2.png" alt="">
 						</div>
 						<div class="client-meta">
-							<h3>David Niph <span>Local shop owner</span></h3>
+							<h3>Nang <span>Local shop owner</span></h3>
 							<p class="testimonial-body">
 								" Sed ut perspiciatis unde omnis iste natus error veritatis et  quasi architecto beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium "
 							</p>
@@ -332,7 +350,7 @@
 							<img src="${ctx}/assets/img/avaters/avatar3.png" alt="">
 						</div>
 						<div class="client-meta">
-							<h3>Jacob Sikim <span>Local shop owner</span></h3>
+							<h3>Hung<span>Local shop owner</span></h3>
 							<p class="testimonial-body">
 								" Sed ut perspiciatis unde omnis iste natus error veritatis et  quasi architecto beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium "
 							</p>
@@ -359,8 +377,8 @@
 			</div>
 			<div class="col-lg-6 col-md-12">
 				<div class="abt-text">
-					<p class="top-sub">Since Year 1999</p>
-					<h2>We are <span class="orange-text">Fruitkha</span></h2>
+					<p class="top-sub">Since Year 2024</p>
+					<h2>We are <span class="orange-text">HarmonyHub</span></h2>
 					<p>Etiam vulputate ut augue vel sodales. In sollicitudin neque et massa porttitor vestibulum ac vel nisi. Vestibulum placerat eget dolor sit amet posuere. In ut dolor aliquet, aliquet sapien sed, interdum velit. Nam eu molestie lorem.</p>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente facilis illo repellat veritatis minus, et labore minima mollitia qui ducimus.</p>
 					<a href="${ctx}/WEB-INF/views/about.html" class="boxed-btn mt-4">know more</a>
@@ -376,76 +394,76 @@
 	<div class="container">
 		<h3>December sale is on! <br> with big <span class="orange-text">Discount...</span></h3>
 		<div class="sale-percent"><span>Sale! <br> Upto</span>50% <span>off</span></div>
-		<a href="${ctx}/WEB-INF/views/shop.html" class="cart-btn btn-lg">Shop Now</a>
+		<a href="${ctx}/WEB-INF/views/admin/shop.html" class="cart-btn btn-lg">Shop Now</a>
 	</div>
 </section>
 <!-- end shop banner -->
 
-<!-- latest news -->
-<div class="latest-news pt-150 pb-150">
-	<div class="container">
+<%--<!-- latest news -->--%>
+<%--<div class="latest-news pt-150 pb-150">--%>
+<%--	<div class="container">--%>
 
-		<div class="row">
-			<div class="col-lg-8 offset-lg-2 text-center">
-				<div class="section-title">
-					<h3><span class="orange-text">Our</span> News</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.</p>
-				</div>
-			</div>
-		</div>
+<%--		<div class="row">--%>
+<%--			<div class="col-lg-8 offset-lg-2 text-center">--%>
+<%--				<div class="section-title">--%>
+<%--					<h3><span class="orange-text">Our</span> News</h3>--%>
+<%--					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.</p>--%>
+<%--				</div>--%>
+<%--			</div>--%>
+<%--		</div>--%>
 
-		<div class="row">
-			<div class="col-lg-4 col-md-6">
-				<div class="single-latest-news">
-					<a href="${ctx}/WEB-INF/views/single-news.html"><div class="latest-news-bg news-bg-1"></div></a>
-					<div class="news-text-box">
-						<h3><a href="${ctx}/WEB-INF/views/single-news.html">You will vainly look for fruit on it in autumn.</a></h3>
-						<p class="blog-meta">
-							<span class="author"><i class="fas fa-user"></i> Admin</span>
-							<span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
-						</p>
-						<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>
-						<a href="${ctx}/WEB-INF/views/single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6">
-				<div class="single-latest-news">
-					<a href="${ctx}/WEB-INF/views/single-news.html"><div class="latest-news-bg news-bg-2"></div></a>
-					<div class="news-text-box">
-						<h3><a href="${ctx}/WEB-INF/views/single-news.html">A man's worth has its season, like tomato.</a></h3>
-						<p class="blog-meta">
-							<span class="author"><i class="fas fa-user"></i> Admin</span>
-							<span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
-						</p>
-						<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>
-						<a href="${ctx}/WEB-INF/views/single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
-				<div class="single-latest-news">
-					<a href="${ctx}/WEB-INF/views/single-news.html"><div class="latest-news-bg news-bg-3"></div></a>
-					<div class="news-text-box">
-						<h3><a href="${ctx}/WEB-INF/views/single-news.html">Good thoughts bear good fresh juicy fruit.</a></h3>
-						<p class="blog-meta">
-							<span class="author"><i class="fas fa-user"></i> Admin</span>
-							<span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
-						</p>
-						<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>
-						<a href="${ctx}/WEB-INF/views/single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-12 text-center">
-				<a href="${ctx}/WEB-INF/views/news.html" class="boxed-btn">More News</a>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- end latest news -->
+<%--		<div class="row">--%>
+<%--			<div class="col-lg-4 col-md-6">--%>
+<%--				<div class="single-latest-news">--%>
+<%--					<a href="${ctx}/WEB-INF/views/single-news.html"><div class="latest-news-bg news-bg-1"></div></a>--%>
+<%--					<div class="news-text-box">--%>
+<%--						<h3><a href="${ctx}/WEB-INF/views/single-news.html">You will vainly look for fruit on it in autumn.</a></h3>--%>
+<%--						<p class="blog-meta">--%>
+<%--							<span class="author"><i class="fas fa-user"></i> Admin</span>--%>
+<%--							<span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>--%>
+<%--						</p>--%>
+<%--						<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>--%>
+<%--						<a href="${ctx}/WEB-INF/views/single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>--%>
+<%--					</div>--%>
+<%--				</div>--%>
+<%--			</div>--%>
+<%--			<div class="col-lg-4 col-md-6">--%>
+<%--				<div class="single-latest-news">--%>
+<%--					<a href="${ctx}/WEB-INF/views/single-news.html"><div class="latest-news-bg news-bg-2"></div></a>--%>
+<%--					<div class="news-text-box">--%>
+<%--						<h3><a href="${ctx}/WEB-INF/views/single-news.html">A man's worth has its season, like tomato.</a></h3>--%>
+<%--						<p class="blog-meta">--%>
+<%--							<span class="author"><i class="fas fa-user"></i> Admin</span>--%>
+<%--							<span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>--%>
+<%--						</p>--%>
+<%--						<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>--%>
+<%--						<a href="${ctx}/WEB-INF/views/single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>--%>
+<%--					</div>--%>
+<%--				</div>--%>
+<%--			</div>--%>
+<%--			<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">--%>
+<%--				<div class="single-latest-news">--%>
+<%--					<a href="${ctx}/WEB-INF/views/single-news.html"><div class="latest-news-bg news-bg-3"></div></a>--%>
+<%--					<div class="news-text-box">--%>
+<%--						<h3><a href="${ctx}/WEB-INF/views/single-news.html">Good thoughts bear good fresh juicy fruit.</a></h3>--%>
+<%--						<p class="blog-meta">--%>
+<%--							<span class="author"><i class="fas fa-user"></i> Admin</span>--%>
+<%--							<span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>--%>
+<%--						</p>--%>
+<%--						<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>--%>
+<%--						<a href="${ctx}/WEB-INF/views/single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>--%>
+<%--					</div>--%>
+<%--				</div>--%>
+<%--			</div>--%>
+<%--		</div>--%>
+<%--		<div class="row">--%>
+<%--			<div class="col-lg-12 text-center">--%>
+<%--				<a href="${ctx}/WEB-INF/views/news.html" class="boxed-btn">More News</a>--%>
+<%--			</div>--%>
+<%--		</div>--%>
+<%--	</div>--%>
+<%--</div>--%>
+<%--<!-- end latest news -->--%>
 
 <!-- logo carousel -->
 <div class="logo-carousel-section">
@@ -489,9 +507,9 @@
 				<div class="footer-box get-in-touch">
 					<h2 class="widget-title">Get in Touch</h2>
 					<ul>
-						<li>34/8, East Hukupara, Gifirtok, Sadan.</li>
-						<li>support@fruitkha.com</li>
-						<li>+00 111 222 3333</li>
+						<li>HCMUTE HARMONYHUB</li>
+						<li>harmony@instrument.com</li>
+						<li>0123 123 124</li>
 					</ul>
 				</div>
 			</div>
@@ -503,7 +521,7 @@
 						<li><a href="${ctx}/WEB-INF/views/about.html">About</a></li>
 						<li><a href="services.html">Shop</a></li>
 						<li><a href="${ctx}/WEB-INF/views/news.html">News</a></li>
-						<li><a href="${ctx}/WEB-INF/views/contact.html">Contact</a></li>
+						<li><a href="${ctx}/WEB-INF/views/admin/contact.html">Contact</a></li>
 					</ul>
 				</div>
 			</div>
@@ -527,8 +545,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6 col-md-12">
-				<p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>,  All Rights Reserved.<br>
-					Distributed By - <a href="https://themewagon.com/">Themewagon</a>
+				<p>Copyrights &copy; 2024 - <a href="https://github.com/bin-bard/MusicalInstrumentWebsite/tree/dev_an">HCMUTE</a>,  All Rights Reserved.<br>
+					Distributed By - <a href="https://github.com/bin-bard/MusicalInstrumentWebsite/tree/dev_an">Group 7</a>
 				</p>
 			</div>
 			<div class="col-lg-6 text-right col-md-12">
@@ -567,6 +585,26 @@
 <script src="${ctx}/assets/js/sticker.js"></script>
 <!-- main js -->
 <script src="${ctx}/assets/js/main.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+function confirmLogout() {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You will be logged out of your account!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, logout!',
+        cancelButtonText: 'Cancel'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = '${ctx}/logout';
+        }
+    });
+}
+</script>
 
 </body>
 </html>

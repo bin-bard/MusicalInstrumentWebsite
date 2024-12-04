@@ -74,10 +74,10 @@
 										<li><a href="error404.jsp">404 page</a></li>
 										<li><a href="about.html">About</a></li>
 										<li><a href="cart.jsp">Cart</a></li>
-										<li><a href="checkout.html">Check Out</a></li>
-										<li><a href="contact.html">Contact</a></li>
+										<li><a href="admin/checkout.html">Check Out</a></li>
+										<li><a href="admin/contact.html">Contact</a></li>
 										<li><a href="news.html">News</a></li>
-										<li><a href="shop.html">Shop</a></li>
+										<li><a href="admin/shop.html">Shop</a></li>
 									</ul>
 								</li>
 								<li><a href="news.html">News</a>
@@ -86,11 +86,11 @@
 										<li><a href="single-news.html">Single News</a></li>
 									</ul>
 								</li>
-								<li><a href="contact.html">Contact</a></li>
-								<li><a href="shop.html">Shop</a>
+								<li><a href="admin/contact.html">Contact</a></li>
+								<li><a href="admin/shop.html">Shop</a>
 									<ul class="sub-menu">
-										<li><a href="shop.html">Shop</a></li>
-										<li><a href="checkout.html">Check Out</a></li>
+										<li><a href="admin/shop.html">Shop</a></li>
+										<li><a href="admin/checkout.html">Check Out</a></li>
 										<li><a href="single-product.html">Single Product</a></li>
 										<li><a href="cart.jsp">Cart</a></li>
 									</ul>
@@ -219,7 +219,7 @@
 							<li><a href="about.html">About</a></li>
 							<li><a href="services.html">Shop</a></li>
 							<li><a href="news.html">News</a></li>
-							<li><a href="contact.html">Contact</a></li>
+							<li><a href="admin/contact.html">Contact</a></li>
 						</ul>
 					</div>
 				</div>
