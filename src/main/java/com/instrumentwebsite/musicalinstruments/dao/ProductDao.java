@@ -97,9 +97,6 @@ public Product findById(Long productId) {
     }
 
 
-
-
-
     public static void main(String[] args) {
         ProductDao productDao = new ProductDao();
 

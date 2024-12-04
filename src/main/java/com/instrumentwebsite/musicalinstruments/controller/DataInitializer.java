@@ -23,9 +23,12 @@ public class DataInitializer {
             category1.setName("Guitars");
             Category category2 = new Category();
             category2.setName("Pianos");
+            Category category3 = new Category();
+            category3.setName("Drums");
 
             em.persist(category1);
             em.persist(category2);
+            em.persist(category3);
 
             // Create sample products
             Product product1 = new Product();
@@ -40,8 +43,15 @@ public class DataInitializer {
             product2.setPrice(new BigDecimal("499.99"));
             product2.setCategory(category2);
 
+            Product product3 = new Product();
+            product3.setName("Wood Drum");
+            product3.setDescription("A versatile Drum.");
+            product3.setPrice(new BigDecimal("799.99"));
+            product3.setCategory(category3);
+
             em.persist(product1);
             em.persist(product2);
+            em.persist(product3);
 
             // Create sample customers
             Customer customer1 = new Customer();

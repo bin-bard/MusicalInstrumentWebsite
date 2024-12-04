@@ -61,49 +61,31 @@ public class OrderController extends HttpServlet {
                 Long orderId = Long.parseLong(request.getParameter("orderId"));
                 logger.info("Updating order with ID: " + orderId);
                 Order order = orderDao.findById(orderId);
+
                 if (order != null) {
-                    String[] orderItemIds = request.getParameterValues("orderItemId");
-                    String[] quantities = request.getParameterValues("quantities");
                     String status = request.getParameter("status");
+                    BigDecimal grandTotal = BigDecimal.ZERO;
 
-                    if (orderItemIds != null && quantities != null && orderItemIds.length == quantities.length) {
-                        BigDecimal grandTotal = BigDecimal.ZERO;
+                    for (OrderItem item : order.getOrderItems()) {
+                        String quantityParam = request.getParameter("quantities_" + item.getId());
+                        if (quantityParam != null) {
+                            int quantity = Integer.parseInt(quantityParam);
+                            logger.info("Updating quantity for OrderItem ID: " + item.getId() + " to " + quantity);
 
-                        for (int i = 0; i < orderItemIds.length; i++) {
-                            Long orderItemId = Long.parseLong(orderItemIds[i]);
-                            int quantity = Integer.parseInt(quantities[i]);
-
-                            // Find the corresponding OrderItem
-                            boolean itemFound = false;
-                            for (OrderItem item : order.getOrderItems()) {
-                                if (item.getId().equals(orderItemId)) {
-                                    logger.info("Updating quantity for OrderItem ID: " + orderItemId + " to " + quantity);
-                                    item.setQuantity(quantity);
-                                    grandTotal = grandTotal.add(item.getUnitPrice().multiply(BigDecimal.valueOf(quantity)));
-                                    itemFound = true;
-                                    break;
-                                }
-                            }
-
-                            if (!itemFound) {
-                                logger.warning("OrderItem with ID " + orderItemId + " not found in order.");
-                                response.sendError(HttpServletResponse.SC_BAD_REQUEST, "OrderItem not found.");
-                                return;
-                            }
+                            item.setQuantity(quantity);
+                            item.setOrder(order); // Thiết lập lại Order cho OrderItem nếu cần
+                            grandTotal = grandTotal.add(item.getUnitPrice().multiply(BigDecimal.valueOf(quantity)));
                         }
-
-                        // Update order status and total amount
-                        order.setStatus(Order.OrderStatus.valueOf(status));
-                        order.setTotalAmount(grandTotal);
-
-                        // Update the order in the database
-                        orderDao.updateOrder(order);
-
-                        response.sendRedirect(request.getContextPath() + "/admin-orderlist");
-                    } else {
-                        logger.warning("Invalid order items.");
-                        response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid order items.");
                     }
+
+                    // Update order status and total amount
+                    order.setStatus(Order.OrderStatus.valueOf(status));
+                    order.setTotalAmount(grandTotal);
+
+                    // Update the order in the database
+                    orderDao.updateOrder(order);
+
+                    response.sendRedirect(request.getContextPath() + "/admin-orderlist");
                 } else {
                     logger.warning("Order not found.");
                     response.sendError(HttpServletResponse.SC_NOT_FOUND, "Order not found.");
@@ -114,6 +96,7 @@ public class OrderController extends HttpServlet {
                 response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid data.");
             }
         }
+
     }
 
 }

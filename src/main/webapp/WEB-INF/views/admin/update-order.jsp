@@ -127,7 +127,8 @@
                     <input type="hidden" name="orderItemId" value="${item.id}" />
                   </td>
                   <td>
-                    <input type="number" name="quantities" value="${item.quantity}" class="quantity-input" min="1">
+                    <input type="number" name="quantities_${item.id}" value="${item.quantity}" class="quantity-input" min="1">
+                    <input type="hidden" name="orderItemId" value="${item.id}">
                   </td>
                   <td>
                     $ ${item.unitPrice}
